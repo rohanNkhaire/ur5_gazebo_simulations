@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <gazebo>
+    <plugin name="ros_control" filename="libgazebo_ros_control.so">
+      <!--robotNamespace>/</robotNamespace-->
+      <!--robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType-->
+    </plugin>
+
+    <plugin name="attach_light" filename="libAttachLightPlugin.so">
+      <link>
+        <link_name>wrist_3_link</link_name>
+        <light>
+          <pose>0 -0.12 0 1.57 0 0</pose>
+          <light_name>spot</light_name>
+        </light>
+      </link>
+    </plugin>
+
+<!--
+    <plugin name="gazebo_ros_power_monitor_controller" filename="libgazebo_ros_power_monitor.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>1.0</updateRate>
+      <timeout>5</timeout>
+      <powerStateTopic>power_state</powerStateTopic>
+      <powerStateRate>10.0</powerStateRate>
+      <fullChargeCapacity>87.78</fullChargeCapacity>     
+      <dischargeRate>-474</dischargeRate>
+      <chargeRate>525</chargeR2te>
+      <dischargeVoltage115.52</dischargeVoltage>
+      <chargeVoltage>16.41</chargeVoltage>
+    </plugin>
+-->
+  </gazebo>
+
+</robot>
