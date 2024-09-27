@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<robot name="partnet_c7a2224b009756cc226245d28c34a910">
+	<link name="link_1">
+		<inertial>
+        	<origin xyz="0 0 0.0" rpy="0 0 0"/>
+        	<mass value="0.8"/>
+        	<inertia ixx="0.005" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
+		</inertial>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/container/textured_objs/original-4.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/container/textured_objs/original-3.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/container/textured_objs/original-2.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/container/textured_objs/original-8.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/container/textured_objs/original-7.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/container/textured_objs/original-4.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/container/textured_objs/original-3.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/container/textured_objs/original-2.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/container/textured_objs/original-8.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/container/textured_objs/original-7.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+	</link>
+</robot>

@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<robot name="partnet_77699e08e3824eab47765668cf4023ed">
+	<link name="link_0">
+		<inertial>
+        	<origin xyz="0 0 0.0" rpy="0 0 0"/>
+        	<mass value="0.03"/>
+        	<inertia ixx="0.0005" ixy="0.0" ixz="0.0" iyy="0.0005" iyz="0.0" izz="0.0005"/>
+		</inertial>
+		<visual name="body-5">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="link_1">
+		<inertial>
+        	<origin xyz="0 0 0.0" rpy="0 0 0"/>
+        	<mass value="0.01"/>
+        	<inertia ixx="0.005" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
+		</inertial>
+		<visual name="lid-6">
+			<origin xyz="-0.01959265898874054 0 0.00449257989956206"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/original-5.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="-0.01959265898874054 0 0.00449257989956206"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/original-5.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="joint_1" type="continuous">
+		<origin xyz="0.0 0 0.0"/>
+		<axis xyz="0 -1 0"/>
+		<child link="link_1"/>
+		<parent link="link_1_helper"/>
+	</joint>
+	<link name="link_1_helper"/>
+	<joint name="joint_2" type="prismatic">
+		<origin xyz="0.01959265898874054 0 -0.00449257989956206"/>
+		<axis xyz="0 1 0"/>
+		<child link="link_1_helper"/>
+		<parent link="link_0"/>
+		<limit effort="30" velocity="1.0" lower="-0.04800000000000004" upper="0.09200000000000008"/>
+	</joint>
+</robot>

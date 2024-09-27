@@ -1,0 +1,2138 @@
+<sdf version='1.10'>
+  <world name='empty'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+            <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+            <specular>0.800000012 0.800000012 0.800000012 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <include>
+      <uri>file:///home/rohan/Projects/pick_n_place/src/models/Table</uri>
+      <name>Table</name>
+      <pose>-0.59999999999999998 -1.3189000000000001e-13 6.8917899999999996e-11 1.99207e-10 8.9624899999999904e-12 -1.5700000000000001</pose>
+    </include>
+    <include>
+      <uri>file:///home/rohan/Projects/pick_n_place/src/models/FoodCourtTable1</uri>
+      <name>FoodCourtTable1_0</name>
+      <pose>0.61186498403549194 -0.072248347103595734 0.0099990628659725189 1.7062112661645915e-06 -4.15967797353779e-10 0.0017322738847652616</pose>
+    </include>
+    <include>
+      <uri>file:///home/rohan/Projects/pick_n_place/src/models/FoodCourtTable1</uri>
+      <name>FoodCourtTable1</name>
+      <pose>0.40439199999999997 0.76648499999999997 0.0099999200000000007 4.6249100000000036e-09 5.2676000000000015e-08 -1.5675699999999999</pose>
+    </include>
+    <include>
+      <uri>file:///home/rohan/Projects/pick_n_place/src/models/Small Blue Box</uri>
+      <name>small_box_blue</name>
+      <pose>0.52987239008099607 -0.36677364437050169 0.7468473541149393 0.0016908196598810893 2.3061139572281072e-07 0.001174034473512453</pose>
+    </include>
+    <include>
+      <uri>file:///home/rohan/Projects/pick_n_place/src/models/TrashBin</uri>
+      <name>TrashBin</name>
+      <pose>0.072758771479129791 -0.67338621616363525 0.010499860160052776 2.0745059297344846e-07 -1.1146083636443478e-07 1.5699999681373755</pose>
+    </include>
+    <model name='kettle'>
+      <link name='link_2'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.29999999999999999</mass>
+          <inertia>
+            <ixx>0.0050000000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0047999999999999996</iyy>
+            <iyz>0</iyz>
+            <izz>0.0040000000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_2_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/kettle/textured_objs/original-1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_2_collision_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/kettle/textured_objs/original-3.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_2_collision_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/kettle/textured_objs/original-2.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_2_collision_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/kettle/textured_objs/original-6.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_2_fixed_joint_lump__handle-2_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/kettle/textured_objs/original-1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_2_fixed_joint_lump__base_body-4_visual_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/kettle/textured_objs/original-3.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_2_fixed_joint_lump__base_body-4_visual_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/kettle/textured_objs/original-2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_2_fixed_joint_lump__base_body-4_visual_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/kettle/textured_objs/original-6.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_0' type='prismatic'>
+        <pose>-2.6469799999999997e-23 -1.05879e-22 -2.6469799999999997e-23 0 -6.5233800000000001e-23 0</pose>
+        <parent>link_2</parent>
+        <child>link_0</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0.10000000000000001</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_0'>
+        <pose>-5.4404125698903627e-07 -6.9998897656020631e-07 -1.0276676023490694e-06 -5.9540131810379072e-07 1.5812704013833568e-06 8.1299134221906106e-07</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.0030000000000000001</mass>
+          <inertia>
+            <ixx>0.00040000000000000002</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00040000000000000002</iyy>
+            <iyz>0</iyz>
+            <izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_0_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/kettle/textured_objs/original-4.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_0_fixed_joint_lump__lid-1_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/kettle/textured_objs/original-4.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.43998792767524719 0.53003579378128052 1.0948325395584106 1.5707931091654603 -1.2898300387846117e-06 3.1400139648315029</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bucket'>
+      <link name='link_1'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.59999999999999998</mass>
+          <inertia>
+            <ixx>0.0050000000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0050000000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.0050000000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_1_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-26.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-4.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-3.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-2.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-16.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_5'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-8.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_6'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-9.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_7'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-5.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_8'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-6.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_9'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-11.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_10'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-12.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_11'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-7.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_12'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-10.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-26.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-4.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-3.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-16.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_5'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-8.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_6'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-9.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_7'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-5.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_8'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-6.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_9'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-11.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_10'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-12.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_11'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-7.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_12'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-10.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_0' type='revolute'>
+        <pose>0 0 0 0 -8.3958799999999999e-23 0</pose>
+        <parent>link_1</parent>
+        <child>link_0</child>
+        <axis>
+          <xyz>-1 0 -8.3958832174132309e-23</xyz>
+          <limit>
+            <lower>-0.0062831853071795857</lower>
+            <upper>3.4431855483344131</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_0'>
+        <pose>-4.0098889431128271e-08 0.064999943007504779 -0.0049998074533290637 0.012583545361769246 1.4141521605789983e-06 -7.8248118920478597e-07</pose>
+        <inertial>
+          <pose>0 -0.050000000000000003 0.083000000000000004 0 -0.060000000000000026 0</pose>
+          <mass>0.029999999999999999</mass>
+          <inertia>
+            <ixx>0.00035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00050000000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.00042499999999999998</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_0_collision'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-14.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_1'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-18.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_2'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-20.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_3'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-22.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_4'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-23.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_5'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-24.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_6'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-21.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_7'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-17.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_8'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-19.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_9'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-31.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_10'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-34.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_11'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-33.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_12'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-28.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_13'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-30.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_14'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-32.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_15'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-27.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_16'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-29.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-14.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_1'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-18.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_2'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-20.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_3'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-22.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_4'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-23.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_5'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-24.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_6'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-21.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_7'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-17.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_8'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-19.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_9'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-31.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_10'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-34.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_11'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-33.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_12'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-28.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_13'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-30.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_14'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-32.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_15'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-27.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__handle-1_visual_16'>
+          <pose>0 -0.065000000000000002 0.0040000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bucket/textured_objs/original-29.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.38733828067779541 -0.56626296043395996 1.1375610828399658 1.5707922731041311 1.3906004184965948e-07 3.1340397846471477</pose>
+      <static>false</static>
+      <self_collide>true</self_collide>
+    </model>
+    <model name='container'>
+      <link name='link_1'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.80000000000000004</mass>
+          <inertia>
+            <ixx>0.0050000000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0050000000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.0050000000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_1_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/container/textured_objs/original-4.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/container/textured_objs/original-3.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/container/textured_objs/original-2.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/container/textured_objs/original-8.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/container/textured_objs/original-7.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/container/textured_objs/original-4.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/container/textured_objs/original-3.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/container/textured_objs/original-2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/container/textured_objs/original-8.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/container/textured_objs/original-7.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.42507299999999998 0.55782699999999996 0.84667599999999998 1.5708099999999998 1.3198300000005959e-06 0.0043815399999999989</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bottle_v2'>
+      <link name='link_0'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.029999999999999999</mass>
+          <inertia>
+            <ixx>0.00050000000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00050000000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.00050000000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_0_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_0_fixed_joint_lump__body-5_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.47161957621574402 -0.051360480487346649 0.84900099039077759 1.5708040828639127 2.4000068958629809e-06 0.0061351302153715391</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bottle_v1'>
+      <link name='link_1'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.029999999999999999</mass>
+          <inertia>
+            <ixx>5.0000000000000002e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000002e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_1_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/new-3.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/original-7.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/original-6.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/original-5.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/original-4.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_5'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/original-3.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_6'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/new-0.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_7'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_1_fixed_joint_lump__body-12_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/new-3.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__body-12_visual_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/original-7.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__body-12_visual_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/original-6.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__body-12_visual_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/original-5.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__body-12_visual_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/original-4.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__body-12_visual_5'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/original-3.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__neck-13_visual_6'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/new-0.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__neck-13_visual_7'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v1/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.13457411527633667 0.56297498941421509 0.7810518741607666 2.9353631811031159e-07 -0.13072990409308358 -0.0012678917294786868</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='simple_box_v1'>
+      <link name='my_box'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.050000000000000003</mass>
+          <inertia>
+            <ixx>0</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0</iyy>
+            <iyz>0</iyz>
+            <izz>0</izz>
+          </inertia>
+        </inertial>
+        <collision name='my_box_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='my_box_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.37419164180755615 0.13662686944007874 0.76181817054748535 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='simple_box_v3'>
+      <link name='my_box'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.050000000000000003</mass>
+          <inertia>
+            <ixx>0</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0</iyy>
+            <iyz>0</iyz>
+            <izz>0</izz>
+          </inertia>
+        </inertial>
+        <collision name='my_box_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='my_box_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Yellow</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.48302099999999998 -1.0155099999999999e-08 1.03 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='ur'>
+      <joint name='base_joint' type='fixed'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>world</parent>
+        <child>base_link</child>
+      </joint>
+      <link name='base_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>4</mass>
+          <inertia>
+            <ixx>0.0044333315599999999</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0044333315599999999</iyy>
+            <iyz>0</iyz>
+            <izz>0.0071999999999999998</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_inertia_collision'>
+          <pose>0 0 0 0 0 -2.4492935982947059e-16</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/collision/base.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='base_link_inertia_visual'>
+          <pose>0 0 0 0 0 -2.4492935982947059e-16</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/visual/base.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='shoulder_pan_joint' type='revolute'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>base_link</parent>
+        <child>shoulder_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-6.2831853071795862</lower>
+            <upper>6.2831853071795862</upper>
+            <effort>150</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='shoulder_link'>
+        <pose>-8.088818487735827e-16 2.7641653939716737e-11 0.089158997044563287 0 0 -3.1415818874880981</pose>
+        <inertial>
+          <pose>0 -0.0019300000000000001 -0.025610000000000001 0 0 0</pose>
+          <mass>3.7000000000000002</mass>
+          <inertia>
+            <ixx>0.01497235833333333</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.01497235833333333</iyy>
+            <iyz>0</iyz>
+            <izz>0.010406250000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='shoulder_link_collision'>
+          <pose>0 0 0 0 0 3.1415926535897931</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/collision/shoulder.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='shoulder_link_visual'>
+          <pose>0 0 0 0 0 3.1415926535897931</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/visual/shoulder.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='shoulder_lift_joint' type='revolute'>
+        <pose>3.8518599999999997e-34 0 0 0 0 0</pose>
+        <parent>shoulder_link</parent>
+        <child>upper_arm_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-6.2831853071795862</lower>
+            <upper>6.2831853071795862</upper>
+            <effort>150</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='upper_arm_link'>
+        <pose>1.515914453196327e-08 -4.2148952106302318e-09 0.089159008867186446 -1.5706375471249336 1.5702337003952542 0.00016965758873205178</pose>
+        <inertial>
+          <pose>-0.21249999999999999 0 0.11336 0 1.5707963267948966 0</pose>
+          <mass>8.3930000000000007</mass>
+          <inertia>
+            <ixx>0.13388583541666671</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.13388583541666671</iyy>
+            <iyz>0</iyz>
+            <izz>0.0151074</izz>
+          </inertia>
+        </inertial>
+        <collision name='upper_arm_link_collision'>
+          <pose>0 0 0.13585 1.5707963267948959 5.5511151231257827e-17 -1.5707963267948959</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/collision/upperarm.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='upper_arm_link_visual'>
+          <pose>0 0 0.13585 1.5707963267948959 5.5511151231257827e-17 -1.5707963267948959</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/visual/upperarm.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='elbow_joint' type='revolute'>
+        <pose>0 0 1.3877799999999999e-17 0 0 0</pose>
+        <parent>upper_arm_link</parent>
+        <child>forearm_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.1415926535897931</lower>
+            <upper>3.1415926535897931</upper>
+            <effort>150</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='forearm_link'>
+        <pose>-0.00023909351550537394 2.2924981857297411e-08 0.51415875101089481 1.5709197956102872 1.5703139114145241 -3.1414607805515984</pose>
+        <inertial>
+          <pose>-0.24224999999999999 0 0.026499999999999999 0 1.5707963267948966 0</pose>
+          <mass>2.3300000000000001</mass>
+          <inertia>
+            <ixx>0.031216803515624999</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.031216803515624999</iyy>
+            <iyz>0</iyz>
+            <izz>0.0040949999999999997</izz>
+          </inertia>
+        </inertial>
+        <collision name='forearm_link_collision'>
+          <pose>0 0 0.016500000000000001 1.5707963267948959 5.5511151231257827e-17 -1.5707963267948959</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/collision/forearm.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='forearm_link_visual'>
+          <pose>0 0 0.016500000000000001 1.5707963267948959 5.5511151231257827e-17 -1.5707963267948959</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/visual/forearm.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='wrist_1_joint' type='revolute'>
+        <pose>0 1.3877799999999999e-17 0 0 0 0</pose>
+        <parent>forearm_link</parent>
+        <child>wrist_1_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-6.2831853071795862</lower>
+            <upper>6.2831853071795862</upper>
+            <effort>28</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='wrist_1_link'>
+        <pose>-5.1069544279016552e-05 0.10915000962138176 0.90640862949609757 -1.5707961512860384 -0.00065783974099880519 1.0048287418772667e-05</pose>
+        <inertial>
+          <pose>0 -0.01634 -0.0018 0 0 0</pose>
+          <mass>1.2190000000000001</mass>
+          <inertia>
+            <ixx>0.0020138895833333331</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0020138895833333331</iyy>
+            <iyz>0</iyz>
+            <izz>0.0021941999999999999</izz>
+          </inertia>
+        </inertial>
+        <collision name='wrist_1_link_collision'>
+          <pose>0 0 -0.092999999999999999 1.5707963267948959 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/collision/wrist1.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='wrist_1_link_visual'>
+          <pose>0 0 -0.092999999999999999 1.5707963267948959 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/visual/wrist1.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='wrist_2_joint' type='revolute'>
+        <pose>0 1.3877799999999999e-17 0 0 0 -5.1517799999999997e-36</pose>
+        <parent>wrist_1_link</parent>
+        <child>wrist_2_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-6.2831853071795862</lower>
+            <upper>6.2831853071795862</upper>
+            <effort>28</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='wrist_2_link'>
+        <pose>-0.00011300672354758717 0.10915001077297545 1.0010587519613832 2.5991662321350836e-07 -0.00065750840391490164 -0.00040741939529375217</pose>
+        <inertial>
+          <pose>0 0.01634 -0.0018 0 0 0</pose>
+          <mass>1.2190000000000001</mass>
+          <inertia>
+            <ixx>0.001831039583333333</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001831039583333333</iyy>
+            <iyz>0</iyz>
+            <izz>0.0021941999999999999</izz>
+          </inertia>
+        </inertial>
+        <collision name='wrist_2_link_collision'>
+          <pose>0 0 -0.095000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/collision/wrist2.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='wrist_2_link_visual'>
+          <pose>0 0 -0.095000000000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/visual/wrist2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='wrist_3_joint' type='revolute'>
+        <pose>0 -2.7755599999999997e-17 -2.7755599999999997e-17 0 0 1.2325999999999999e-32</pose>
+        <parent>wrist_2_link</parent>
+        <child>wrist_3_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-6.2831853071795862</lower>
+            <upper>6.2831853071795862</upper>
+            <effort>28</effort>
+            <velocity>3.1415926535897931</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='wrist_3_link'>
+        <pose>-7.9611009543070795e-05 0.19144996498317146 1.0010586086818858 -1.5707959039818769 0.0023085758614310669 -0.00040744824207015849</pose>
+        <inertial>
+          <pose>1.771963093658449e-05 5.0195629161589953e-21 0.02493099809423964 0 0 0</pose>
+          <mass>0.85110196999999999</mass>
+          <inertia>
+            <ixx>0.00083278541496840724</ixx>
+            <ixy>-2.9359999999979651e-08</ixy>
+            <ixz>-4.344385439969794e-07</ixz>
+            <iyy>0.00076094157068166144</iyy>
+            <iyz>-1.230664234826314e-22</iyz>
+            <izz>0.00052674502321325425</izz>
+          </inertia>
+        </inertial>
+        <collision name='wrist_3_link_collision'>
+          <pose>0 0 -0.081799999999999998 1.5707963267948959 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/collision/wrist3.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='wrist_3_link_fixed_joint_lump__robotiq_85_base_link_collision_1'>
+          <pose>0 0 0 -5.4210125812580356e-20 -0.00079632679489641429 -1.570796326794897</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/robotiq_base.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='wrist_3_link_visual'>
+          <pose>0 0 -0.081799999999999998 1.5707963267948959 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/ur_description/share/ur_description/meshes/ur5/visual/wrist3.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='wrist_3_link_fixed_joint_lump__robotiq_85_base_link_visual_1'>
+          <pose>0 0 0 -5.4210125812580356e-20 -0.00079632679489641429 -1.570796326794897</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/robotiq_base.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='robotiq_85_left_inner_knuckle_joint' type='revolute'>
+        <pose>2.7755599999999997e-17 0 0 0 0 0</pose>
+        <parent>wrist_3_link</parent>
+        <child>robotiq_85_left_inner_knuckle_link</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-inf</lower>
+            <upper>inf</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='robotiq_85_left_inner_knuckle_link'>
+        <pose>-2.5765837782049431e-05 0.25288006198713425 1.013709843827018 -3.1374882016960313 -0.97376783721850635 1.5669945817240947</pose>
+        <inertial>
+          <pose>0.018976989999999999 0.00015001000000000001 0.02247101 0 0 0</pose>
+          <mass>0.029693764479999999</mass>
+          <inertia>
+            <ixx>9.5713600000000001e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>-3.9342399999999998e-06</ixz>
+            <iyy>8.69056e-06</iyy>
+            <iyz>0</iyz>
+            <izz>8.1914400000000003e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='robotiq_85_left_inner_knuckle_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/left_inner_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='robotiq_85_left_inner_knuckle_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/left_inner_knuckle.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='robotiq_85_left_knuckle_joint' type='revolute'>
+        <pose>-5.5511199999999995e-17 0 -8.3266699999999998e-17 0 0 0</pose>
+        <parent>wrist_3_link</parent>
+        <child>robotiq_85_left_knuckle_link</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0.80000000000000004</upper>
+            <effort>50</effort>
+            <velocity>0.5</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='robotiq_85_left_knuckle_link'>
+        <pose>1.3851692332503664e-05 0.24637884173735944 1.031616163951 -3.1374842385266613 -0.97376793858939803 1.5669908000775123</pose>
+        <inertial>
+          <pose>0.029386739357586979 -0.000550523351652724 0.01110696109436298 0 0 0</pose>
+          <mass>0.056451499600000003</mass>
+          <inertia>
+            <ixx>1.672951427632284e-05</ixx>
+            <ixy>2.376180881559496e-07</ixy>
+            <ixz>-5.7573775998137648e-06</ixz>
+            <iyy>2.2123373744517121e-05</iyy>
+            <iyz>1.6103204181075421e-07</iyz>
+            <izz>1.2901330613689229e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='robotiq_85_left_knuckle_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/left_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='robotiq_85_left_knuckle_link_fixed_joint_lump__robotiq_85_left_finger_link_collision_1'>
+          <pose>0.031526159999999998 0 -0.0037634700000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/left_finger.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='robotiq_85_left_knuckle_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/left_knuckle.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='robotiq_85_left_knuckle_link_fixed_joint_lump__robotiq_85_left_finger_link_visual_1'>
+          <pose>0.031526159999999998 0 -0.0037634700000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/left_finger.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='robotiq_85_left_finger_tip_joint' type='revolute'>
+        <pose>8.3266699999999998e-17 0 -5.5511199999999995e-17 0 0 0</pose>
+        <parent>robotiq_85_left_knuckle_link</parent>
+        <child>robotiq_85_left_finger_tip_link</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-inf</lower>
+            <upper>inf</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='robotiq_85_left_finger_tip_link'>
+        <pose>5.0691206501630635e-05 0.30317833886695567 1.0379347377835129 -1.9029220502978221 -1.5683553447864536 0.33171937347122654</pose>
+        <inertial>
+          <pose>-0.01456706 -0.00080000000000000004 0.016497009999999999 0 0 0</pose>
+          <mass>0.04268588744</mass>
+          <inertia>
+            <ixx>1.0481519999999999e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>3.5232e-06</ixz>
+            <iyy>1.197888e-05</iyy>
+            <iyz>0</iyz>
+            <izz>4.2278399999999998e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='robotiq_85_left_finger_tip_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/left_finger_tip.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='robotiq_85_left_finger_tip_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/left_finger_tip.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='robotiq_85_right_inner_knuckle_joint' type='revolute'>
+        <pose>-2.7755599999999997e-17 0 5.5511199999999995e-17 0 0 0</pose>
+        <parent>wrist_3_link</parent>
+        <child>robotiq_85_right_inner_knuckle_link</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-inf</lower>
+            <upper>inf</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='robotiq_85_right_inner_knuckle_link'>
+        <pose>-8.4361786369536884e-05 0.25285978607913745 0.98830983660712501 -0.0041138482147557416 -0.97535979677206552 -1.567797643984093</pose>
+        <inertial>
+          <pose>-0.019268239999999999 5.0009999999999997e-05 0.02222178 0 0 0</pose>
+          <mass>0.029693764479999999</mass>
+          <inertia>
+            <ixx>9.4245600000000001e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>3.9635999999999996e-06</ixz>
+            <iyy>8.69056e-06</iyy>
+            <iyz>0</iyz>
+            <izz>8.3382400000000003e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='robotiq_85_right_inner_knuckle_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/right_inner_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='robotiq_85_right_inner_knuckle_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/right_inner_knuckle.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='robotiq_85_right_knuckle_joint' type='revolute'>
+        <pose>-2.7755599999999997e-17 0 2.7755599999999997e-17 0 0 0</pose>
+        <parent>wrist_3_link</parent>
+        <child>robotiq_85_right_knuckle_link</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-0.80000000000000004</lower>
+            <upper>0</upper>
+            <effort>50</effort>
+            <velocity>0.5</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='robotiq_85_right_knuckle_link'>
+        <pose>-0.00012817918192959554 0.24633018929530534 0.97041393911280116 -0.0041148301435480657 -0.97535945882381103 -1.5677971823171768</pose>
+        <inertial>
+          <pose>-0.029386739357586979 4.4887161538121481e-05 0.01110696109436298 0 0 0</pose>
+          <mass>0.056451499600000003</mass>
+          <inertia>
+            <ixx>1.67196201740057e-05</ixx>
+            <ixy>-4.9109219643319929e-08</ixy>
+            <ixz>5.7573775998137648e-06</ixz>
+            <iyy>2.2123373744517121e-05</iyy>
+            <iyz>3.3280959258061408e-08</iyz>
+            <izz>1.289143651137209e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='robotiq_85_right_knuckle_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/right_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='robotiq_85_right_knuckle_link_fixed_joint_lump__robotiq_85_right_finger_link_collision_1'>
+          <pose>-0.031526159999999998 0 -0.0037634700000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/right_finger.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='robotiq_85_right_knuckle_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/right_knuckle.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='robotiq_85_right_knuckle_link_fixed_joint_lump__robotiq_85_right_finger_link_visual_1'>
+          <pose>-0.031526159999999998 0 -0.0037634700000000001 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/right_finger.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='robotiq_85_right_finger_tip_joint' type='revolute'>
+        <pose>-1.6653299999999999e-16 0 -5.5511199999999995e-17 0 0 0</pose>
+        <parent>robotiq_85_right_knuckle_link</parent>
+        <child>robotiq_85_right_finger_tip_link</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-inf</lower>
+            <upper>inf</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='robotiq_85_right_finger_tip_link'>
+        <pose>-0.00011923429979988402 0.30311961294760509 0.96400482586098213 -1.9028291699312019 -1.568353346090708 0.33162578035506024</pose>
+        <inertial>
+          <pose>0.01456706 5.0000000000000002e-05 0.016497009999999999 0 0 0</pose>
+          <mass>0.04268588744</mass>
+          <inertia>
+            <ixx>1.0481519999999999e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>-3.5232e-06</ixz>
+            <iyy>1.197888e-05</iyy>
+            <iyz>0</iyz>
+            <izz>4.2278399999999998e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='robotiq_85_right_finger_tip_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/collision/2f_85/right_finger_tip.stl</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='robotiq_85_right_finger_tip_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/install/robotiq_description/share/robotiq_description/meshes/visual/2f_85/right_finger_tip.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <plugin name='gz_ros2_control::GazeboSimROS2ControlPlugin' filename='gz_ros2_control-system'>
+        <parameters>/home/rohan/Projects/pick_n_place/install/ur_simulation_gz/share/ur_simulation_gz/config/ur_controllers.yaml</parameters>
+      </plugin>
+      <frame name='base_link-base_fixed_joint' attached_to='base_link'>
+        <pose>0 0 0 0 0 3.1415926535897931</pose>
+      </frame>
+      <frame name='base' attached_to='base_link-base_fixed_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='base_link-base_link_inertia' attached_to='base_link'>
+        <pose>0 0 0 0 0 3.1415926535897931</pose>
+      </frame>
+      <frame name='base_link_inertia' attached_to='base_link-base_link_inertia'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='robotiq_85_base_joint' attached_to='flange'>
+        <pose>0 0 0 0 1.5700000000008241 0</pose>
+      </frame>
+      <frame name='robotiq_85_base_link' attached_to='robotiq_85_base_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='robotiq_85_left_finger_joint' attached_to='robotiq_85_left_knuckle_link'>
+        <pose>0.031526159999999998 0 -0.0037634700000000001 0 0 0</pose>
+      </frame>
+      <frame name='robotiq_85_left_finger_link' attached_to='robotiq_85_left_finger_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='robotiq_85_right_finger_joint' attached_to='robotiq_85_right_knuckle_link'>
+        <pose>-0.031526159999999998 0 -0.0037634700000000001 0 0 0</pose>
+      </frame>
+      <frame name='robotiq_85_right_finger_link' attached_to='robotiq_85_right_finger_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='wrist_3-flange' attached_to='wrist_3_link'>
+        <pose>0 0 0 -1.5707963267948957 -1.5707963267948966 0</pose>
+      </frame>
+      <frame name='flange' attached_to='wrist_3-flange'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='wrist_3_link-ft_frame' attached_to='wrist_3_link'>
+        <pose>0 0 0 3.1415926535897931 0 0</pose>
+      </frame>
+      <frame name='ft_frame' attached_to='wrist_3_link-ft_frame'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <pose>0 0 0 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='simple_box_v2'>
+      <link name='my_box'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.050000000000000003</mass>
+          <inertia>
+            <ixx>0</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0</iyy>
+            <iyz>0</iyz>
+            <izz>0</izz>
+          </inertia>
+        </inertial>
+        <collision name='my_box_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='my_box_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.27623099088668823 0.20912514626979828 1.0299971103668213 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.0099999997764825821</linear>
+        <constant>0.89999997615814209</constant>
+        <quadratic>0.0010000000474974513</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

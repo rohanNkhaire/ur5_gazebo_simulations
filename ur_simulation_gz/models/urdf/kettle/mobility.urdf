@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<robot name="partnet_1f8cfb9b76ea9c53bb91b303f29923d1-0">
+	<link name="link_0">
+		<inertial>
+        <origin xyz="0 0 0.0" rpy="0 0 0"/>
+        <mass value="0.003"/>
+        <inertia ixx="0.0004" ixy="0.0" ixz="0.0" iyy="0.0004" iyz="0.0" izz="0.0001"/>
+		</inertial>
+		<visual name="lid-1">
+			<origin xyz="-0.0 -0.0 -0.0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/kettle/textured_objs/original-4.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="-0.0 -0.0 -0.0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/kettle/textured_objs/original-4.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="joint_0" type="prismatic">
+		<origin xyz="0.0 0.0 0.0"/>
+		<axis xyz="0.0 1.0 0.0"/>
+		<child link="link_0"/>
+		<parent link="link_2"/>
+		<limit effort="30" velocity="1.0" lower="0.0" upper="0.1" />
+	</joint>
+	<link name="link_2">
+		<inertial>
+        <origin xyz="0 0 0.0" rpy="0 0 0"/>
+        <mass value="0.3"/>
+        <inertia ixx="0.005" ixy="0.0" ixz="0.0" iyy="0.0048" iyz="0.0" izz="0.004"/>
+		</inertial>
+		<visual name="handle-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/kettle/textured_objs/original-1.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-4">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/kettle/textured_objs/original-3.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-4">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/kettle/textured_objs/original-2.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-4">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/kettle/textured_objs/original-6.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/kettle/textured_objs/original-1.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/kettle/textured_objs/original-3.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/kettle/textured_objs/original-2.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/kettle/textured_objs/original-6.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+	</link>
+</robot>

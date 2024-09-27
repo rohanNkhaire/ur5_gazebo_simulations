@@ -1,0 +1,384 @@
+<?xml version="1.0" ?>
+<robot name="partnet_823f2656-9520-4364-84a3-df6748c11aa8">
+	<link name="link_0">
+		<inertial>
+        	<origin xyz="0.00 -0.05 0.083" rpy="0 -0.06 0"/>
+        	<mass value="0.03"/>
+        	<inertia ixx="0.00035" ixy="0.0" ixz="0.0" iyy="0.0005" iyz="0.0" izz="0.000425"/>
+		</inertial>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-14.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-18.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-20.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-22.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-23.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-24.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-21.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-17.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-19.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-31.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-34.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-33.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-28.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-30.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-32.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-27.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="handle-1">
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-29.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-14.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-18.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-20.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-22.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-23.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-24.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-21.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-17.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-19.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-31.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-34.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-33.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-28.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-30.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-32.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-27.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.065 0.004"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-29.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="joint_0" type="revolute">
+		<origin xyz="-0.0 0.065 -0.005"/>
+		<axis xyz="-1 0 0"/>
+		<child link="link_0"/>
+		<parent link="link_1"/>
+		<limit effort="30" velocity="1.0" lower="-0.006283185307179586" upper="3.443185548334413" />
+	</joint>
+	<link name="link_1">
+		<inertial>
+        	<origin xyz="0 0 0.0" rpy="0 0 0"/>
+        	<mass value="0.6"/>
+        	<inertia ixx="0.005" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
+		</inertial>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-26.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-4.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-3.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-2.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-16.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-8.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-9.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-5.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-6.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-11.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-12.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-7.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-10.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-26.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-4.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-3.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-2.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-16.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-8.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-9.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-5.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-6.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-11.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-12.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-7.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="$(find ur_simulation_gz)/models/urdf/bucket/textured_objs/original-10.obj" scale="0.2 0.2 0.2"/>
+			</geometry>
+		</collision>
+	</link>
+</robot>
