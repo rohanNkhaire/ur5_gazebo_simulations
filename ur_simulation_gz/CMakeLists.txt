@@ -27,4 +27,13 @@ if(BUILD_TESTING)
   ament_add_pytest_test(description test/test_description.py)
 endif()
 
+
+# Install Python execs
+ament_python_install_package(${PROJECT_NAME})
+
+install(PROGRAMS
+  scripts/wait_for_robot_description
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()

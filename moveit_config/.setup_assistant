@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: ur_simulation_gz
+    relative_path: urdf/ur_gz.urdf
+  srdf:
+    relative_path: config/ur.srdf
+  package_settings:
+    author_name: Rohan Khaire
+    author_email: rkhaire@asu.edu
+    generated_timestamp: 1727391841
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
