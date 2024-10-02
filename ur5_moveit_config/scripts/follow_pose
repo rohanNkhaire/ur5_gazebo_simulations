@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+"""Example that uses MoveIt 2 to follow a target inside Ignition Gazebo"""
+
+import rclpy
+import time
+from geometry_msgs.msg import Pose, PoseStamped
+from moveit.planning import (
+    MoveItPy,
+    MultiPipelinePlanRequestParameters,
+)
+from moveit_configs_utils import MoveItConfigsBuilder
+from ament_index_python import get_package_share_directory
+from rclpy.callback_groups import ReentrantCallbackGroup
+from rclpy.node import Node
+from rclpy.qos import QoSProfile
+
+
+class MoveItFollowTarget(Node):
+    def __init__(self):
+        super().__init__("ex_follow_target_py")
+
+        ###################################################################
+        # MoveItPy Setup
+        ###################################################################
+        moveit_config_builder = MoveItConfigsBuilder("ur5")
+
+        moveit_config_builder.moveit_cpp(file_path=get_package_share_directory("ur5_moveit_config") + "/config/moveit_cpp.yaml")
+        moveit_config_builder.robot_description_semantic(file_path=get_package_share_directory("ur5_moveit_config") +"/srdf/ur.srdf")
+        moveit_config_builder.planning_pipelines("ompl")
+        moveit_config_dict = moveit_config_builder.to_moveit_configs().to_dict()
+
+        # instantiate MoveItPy instance and get planning component
+        self.ur5 = MoveItPy(node_name="moveit_py", config_dict=moveit_config_dict)
+        self.ur5_arm = self.ur5.get_planning_component("ur5_arm")
+
+        # Create callback group that allows execution of callbacks in parallel without restrictions
+        self._callback_group = ReentrantCallbackGroup()
+
+        # Create a subscriber for target pose
+        self.__previous_target_pose = Pose()
+        self.create_subscription(
+            msg_type=PoseStamped,
+            topic="/target_pose",
+            callback=self.target_pose_callback,
+            qos_profile=QoSProfile(depth=1),
+            callback_group=self._callback_group,
+        )
+
+        self.get_logger().info("Initialization successful.")
+
+    def plan_and_execute(self,
+    robot,
+    planning_component,
+    single_plan_parameters=None,
+    multi_plan_parameters=None,
+    sleep_time=0.0,
+    ):
+        """Helper function to plan and execute a motion."""
+        # plan to goal
+        if multi_plan_parameters is not None:
+            plan_result = planning_component.plan(
+                multi_plan_parameters=multi_plan_parameters
+            )
+        elif single_plan_parameters is not None:
+            plan_result = planning_component.plan(
+                single_plan_parameters=single_plan_parameters
+            )
+        else:
+            plan_result = planning_component.plan()
+
+        # execute the plan
+        if plan_result:
+            robot_trajectory = plan_result.trajectory
+            robot.execute(robot_trajectory, controllers=[])
+
+        time.sleep(sleep_time)        
+
+    def target_pose_callback(self, msg: PoseStamped):
+        """
+        Plan and execute trajectory each time the target pose is changed
+        """
+
+        # Return if target pose is unchanged
+        if msg.pose == self.__previous_target_pose:
+            return
+
+        self.get_logger().info("Target pose has changed. Planning and executing...")
+
+        # Plan and execute motion
+        pose_goal = PoseStamped()
+        pose_goal.header.frame_id = "world"
+        pose_goal.pose.position = msg.pose.position,
+        pose_goal.pose.orientation = msg.pose.orientation,
+        self.ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
+
+        # plan to goal
+        self.plan_and_execute(self.ur5, self.ur5_arm, sleep_time=3.0)
+
+        # Update for next callback
+        self.__previous_target_pose = msg.pose
+
+
+def main(args=None):
+    rclpy.init(args=args)
+
+    target_follower = MoveItFollowTarget()
+
+    executor = rclpy.executors.MultiThreadedExecutor(2)
+    executor.add_node(target_follower)
+    executor.spin()
+
+    rclpy.shutdown()
+    exit(0)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,288 @@
+<?xml version="1.0" ?>
+<robot name="partnet_823f2656-9520-4364-84a3-df6748c11aa8e">
+	<link name="link_0">
+		<inertial>
+        	<origin xyz="0.00 -0.0 0.0" rpy="0 -0.0 0"/>
+        	<mass value="0.0003"/>
+        	<inertia ixx="0.00035" ixy="0.0" ixz="0.0" iyy="0.0005" iyz="0.0" izz="0.000425"/>
+		</inertial>
+		<visual name="lid-1">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-17.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="lid-1">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-10.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="lid-1">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-11.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="lid-1">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-8.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="lid-1">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-1.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="lid-1">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-13.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="lid-1">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-15.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="lid-1">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-14.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="lid-1">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-16.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-17.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-10.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-11.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-8.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-1.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-13.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-15.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-14.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-16.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="joint_0" type="prismatic">
+		<origin xyz="0 0 0"/>
+		<axis xyz="0 1 0"/>
+		<child link="link_0"/>
+		<parent link="link_1"/>
+		<limit effort="30" velocity="1.0" lower="0" upper="0.06"/>
+	</joint>
+	<link name="link_1">
+		<inertial>
+        	<origin xyz="0.00 -0.00 0.00" rpy="0 0.00 0"/>
+        	<mass value="0.25"/>
+        	<inertia ixx="0.00035" ixy="0.0" ixz="0.0" iyy="0.0005" iyz="0.0" izz="0.000425"/>
+		</inertial>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-29.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-21.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-30.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-22.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-26.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-5.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-27.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-6.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-31.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-23.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-25.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-7.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<visual name="base_body-2">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-19.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-29.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-21.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-30.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-22.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-26.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-5.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-27.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-6.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-31.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-23.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-25.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-7.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/pot/textured_objs/original-19.obj" scale="0.15 0.15 0.15"/>
+			</geometry>
+		</collision>
+	</link>
+</robot>

@@ -1,0 +1,690 @@
+<sdf version='1.10'>
+  <world name='empty'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+            <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+            <specular>0.800000012 0.800000012 0.800000012 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <include>
+      <uri>file:///home/rohan/Projects/pick_n_place/src/models/Table</uri>
+      <name>Table</name>
+      <pose>-0.826345 -0.35223100000000002 2.68748e-08 -8.5363100000000023e-09 2.6055100000000026e-08 -1.5700000000000001</pose>
+    </include>
+    <model name='simple_box_v3'>
+      <link name='my_box'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.050000000000000003</mass>
+          <inertia>
+            <ixx>0</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0</iyy>
+            <iyz>0</iyz>
+            <izz>0</izz>
+          </inertia>
+        </inertial>
+        <collision name='my_box_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='my_box_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Yellow</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.76269699999999996 -0.380193 1.03 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='simple_box_v2'>
+      <link name='my_box'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.050000000000000003</mass>
+          <inertia>
+            <ixx>0</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0</iyy>
+            <iyz>0</iyz>
+            <izz>0</izz>
+          </inertia>
+        </inertial>
+        <collision name='my_box_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='my_box_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.58255400000000002 -0.19339500000000001 1.03 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='FoodCourtTable1'>
+      <static>false</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://FoodCourtTable1/meshes/FoodCourtTable1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://FoodCourtTable1/meshes/FoodCourtTable1_Col.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.25329200000000002 1.01458 0.0099996700000000004 4.8823899999999985e-07 2.8866600000000016e-07 1.5700000000000001</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='table'>
+      <link name='baseLink'>
+        <inertial>
+          <pose>0 0 0.59999999999999998 0 0 0</pose>
+          <mass>0.5</mass>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <collision name='baseLink_collision'>
+          <pose>0 0 1.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 1 0.050000000000000003</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_1'>
+          <pose>-0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_2'>
+          <pose>-0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_3'>
+          <pose>0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_4'>
+          <pose>0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name='baseLink_visual'>
+          <pose>0 0 1.2 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1.5 1 0.050000000000000003</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_1'>
+          <pose>-0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_2'>
+          <pose>-0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_3'>
+          <pose>0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_4'>
+          <pose>0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.91456787005881779 0.014591320347972215 -0.00023293495178222656 -0.00038471062072708065 -0.00017273718550728738 1.5291234998522327</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bottle'>
+      <link name='link_0'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.029999999999999999</mass>
+          <inertia>
+            <ixx>5.0000000000000002e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000002e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_0_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_0_fixed_joint_lump__body-5_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.66555601358413696 -0.53620719909667969 1.3267472982406616 1.5705007162213349 -0.00090746763000162467 -0.00036056198882273519</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bottle_2'>
+      <link name='link_0'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.029999999999999999</mass>
+          <inertia>
+            <ixx>5.0000000000000002e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000002e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_0_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_0_fixed_joint_lump__body-5_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.74751460552215576 0.3404478132724762 1.2751522064208984 3.1413209779431277 0.59526184051246789 3.1260442315134447</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bottle_3'>
+      <link name='link_0'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.029999999999999999</mass>
+          <inertia>
+            <ixx>5.0000000000000002e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000002e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_0_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_0_fixed_joint_lump__body-5_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.11346063762903214 0.91219264268875122 0.79524600505828857 3.1415926270539392 -0.4509462372442507 3.141198819086171</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bottle_5'>
+      <link name='link_0'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.029999999999999999</mass>
+          <inertia>
+            <ixx>5.0000000000000002e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000002e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_0_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_0_fixed_joint_lump__body-5_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.66771499999999995 -0.0046412199999999997 1.1171899999999999 1.5707900000000004 -1.1611800000004391e-05 0.029371899999999992</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bottle_6'>
+      <link name='link_0'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.029999999999999999</mass>
+          <inertia>
+            <ixx>5.0000000000000002e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000002e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_0_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_0_fixed_joint_lump__body-5_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.49371230602264404 0.85044395923614502 0.84900516271591187 1.570810962509499 8.9042493464708066e-06 -1.550017230851449</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bottle_4'>
+      <link name='link_0'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.029999999999999999</mass>
+          <inertia>
+            <ixx>5.0000000000000002e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>5.0000000000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>5.0000000000000002e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_0_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_0_fixed_joint_lump__body-5_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.78565799999999997 -0.76248400000000005 1.06396 -2.105230000000497e-06 -0.59656100000000001 0.0079972600000000008</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='simple_box_v1'>
+      <link name='my_box'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.050000000000000003</mass>
+          <inertia>
+            <ixx>0</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0</iyy>
+            <iyz>0</iyz>
+            <izz>0</izz>
+          </inertia>
+        </inertial>
+        <collision name='my_box_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='my_box_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.83560031652450562 -0.14822418987751007 1.239720344543457 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='simple_box_v4'>
+      <link name='my_box'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.050000000000000003</mass>
+          <inertia>
+            <ixx>0</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0</iyy>
+            <iyz>0</iyz>
+            <izz>0</izz>
+          </inertia>
+        </inertial>
+        <collision name='my_box_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='my_box_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.28462100028991699 0.81455898284912109 0.76181745529174805 0 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.0099999997764825821</linear>
+        <constant>0.89999997615814209</constant>
+        <quadratic>0.0010000000474974513</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+     <plugin
+        filename="gz-sim-pose-publisher-system"
+        name="gz::sim::systems::PosePublisher">
+        <publish_link_pose>true</publish_link_pose>
+        <publish_collision_pose>false</publish_collision_pose>
+        <publish_visual_pose>false</publish_visual_pose>
+        <publish_nested_model_pose>false</publish_nested_model_pose>
+      </plugin>
+  </world>
+</sdf>

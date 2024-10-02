@@ -30,11 +30,43 @@
   <!-- create link fixed to the "world" -->
   <link name="world" />
 
+  <!-- ur5 stand -->
+	<link name="ur5_stand">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1000"/>
+      <inertia ixx="100"  ixy="0"  ixz="0" iyy="100" iyz="0" izz="100" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.0762" length="1.0033" />
+      </geometry>
+      <material name="silver">
+        <color rgba="0.75 0.75 0.75 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.0762" length="1.0033"/>
+      </geometry>
+    </collision>
+  </link>
+
+	<joint name="world-ur5_stand" type="fixed">
+     <origin xyz="0 0 0.50165"/>
+     <parent link="world"/>
+     <child link="ur5_stand"/>
+  </joint>
+
   <!-- arm -->
   <xacro:ur_robot
     name="$(arg name)"
     tf_prefix="$(arg tf_prefix)"
-    parent="world"
+    parent="ur5_stand"
     joint_limits_parameters_file="$(arg joint_limit_params)"
     kinematics_parameters_file="$(arg kinematics_params)"
     physical_parameters_file="$(arg physical_params)"
@@ -44,7 +76,7 @@
     safety_k_position="$(arg safety_k_position)"
     force_abs_paths="true"
     >
-    <origin xyz="0 0 0" rpy="0 0 0" />          <!-- position robot in the world -->
+    <origin xyz="0 0 0.50165" rpy="0 0 0" />          <!-- position robot in the world -->
   </xacro:ur_robot>
 
   <xacro:robotiq_gripper

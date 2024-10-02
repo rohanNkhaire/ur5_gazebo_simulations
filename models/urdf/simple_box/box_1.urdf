@@ -19,6 +19,6 @@
       </collision>
     </link>
     <gazebo reference="my_box">
-      <material>Gazebo/Blue</material>
+      <material>Gazebo/Red</material>
     </gazebo>
 </robot>

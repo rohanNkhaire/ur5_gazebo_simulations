@@ -291,7 +291,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "world_file",
             default_value=PathJoinSubstitution(
-                [FindPackageShare("ur_simulation_gz"), "world", "model_v1.sdf"]),
+                [FindPackageShare("ur_simulation_gz"), "world", "world_bottle.sdf"]),
             description="Gazebo world file (absolute path or filename from the gazebosim worlds collection) containing a custom world.",
         )
     )

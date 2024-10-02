@@ -1,0 +1,172 @@
+<?xml version="1.0" ?>
+<robot name="partnet_bf4dbc47f8688cf2b362845c6edb57fc">
+	<link name="my_box">
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.2" />
+      <inertia  ixx="0.00052" ixy="0.0"  ixz="0.0"  iyy="00.0005"  iyz="0.0"  izz="0.00015" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+        <geometry>
+          <box size="0.2 0.2 0.03" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0"/>
+        <geometry>
+          <box size="0.5 0.5 0.03" />
+        </geometry>
+      </collision>
+    </link>
+    <gazebo reference="my_box">
+      <material>Gazebo/Gray</material>
+    </gazebo>
+	<joint name="joint_base" type="fixed">
+		<origin xyz="0 0 0.1" rpy="1.57 0 0"/>
+		<axis xyz="0 0 0"/>
+		<child link="link_2"/>
+		<parent link="my_box"/>
+	</joint>
+	<link name="link_0">
+		<inertial>
+        	<origin xyz="0.0 -0.02 0.0" rpy="0 0 0"/>
+        	<mass value="0.008"/>
+        	<inertia ixx="0.00004" ixy="0.0" ixz="0.0" iyy="0.00004" iyz="0.0" izz="0.000012"/>
+		</inertial>
+		<visual name="switch-2">
+			<origin xyz="0.0 -0.085 0.02"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-1.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<visual name="switch-2">
+			<origin xyz="0.0 -0.085 0.02"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-3.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<visual name="switch-2">
+			<origin xyz="0.0 -0.085 0.02"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-2.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<visual name="switch-2">
+			<origin xyz="0.0 -0.085 0.02"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-5.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0.0 -0.085 0.02"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-1.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.085 0.02"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-3.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.085 0.02"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-2.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0.0 -0.085 0.02"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-5.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="joint_0" type="revolute">
+		<origin xyz="0.0 0.06 -0.02"/>
+		<axis xyz="0 1 0"/>
+		<child link="link_0"/>
+		<parent link="link_2"/>
+		<limit effort="30" velocity="1.0" lower="-1.5707963267948966" upper="1.5707963267948966"/>
+	</joint>
+	<link name="link_2">
+		<inertial>
+        	<origin xyz="0 -0.02 -0.02" rpy="0 0 0"/>
+        	<mass value="0.9"/>
+        	<inertia ixx="0.002" ixy="0.0" ixz="0.0" iyy="0.004" iyz="0.0" izz="0.004"/>
+		</inertial>
+		<visual name="vertical_support-8">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-4.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<visual name="tube-5">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-10.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<visual name="head-6">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-11.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<visual name="head-6">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-14.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<visual name="head-6">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-13.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<visual name="mouth-7">
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-12.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-4.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-10.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-11.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-14.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-13.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="/home/rohan/Projects/pick_n_place/src/models/urdf/faucet/textured_objs/original-12.obj" scale="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+	</link>
+</robot>
