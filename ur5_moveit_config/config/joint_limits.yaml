@@ -42,9 +42,8 @@ joint_limits:
     has_acceleration_limits: true
     max_acceleration: 1.225
   robotiq_85_left_knuckle_joint:
-    has_position_limits: true
-    max_position: 0.79
-    min_position: 0.0
-    max_effort: 28.0
     has_acceleration_limits: true
-    max_acceleration: 0.025 
+    max_acceleration: 1.225
+  robotiq_85_right_knuckle_joint:
+    has_acceleration_limits: true
+    max_acceleration: 1.225    

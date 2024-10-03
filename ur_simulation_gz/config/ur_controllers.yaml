@@ -27,7 +27,7 @@ controller_manager:
       type: position_controllers/JointGroupPositionController
 
     robotiq_gripper_controller:
-      type: position_controllers/GripperActionController  
+      type: joint_trajectory_controller/JointTrajectoryController  
 
 
 speed_scaling_state_broadcaster:
@@ -48,7 +48,6 @@ force_torque_sensor_broadcaster:
     frame_id: tool0
     topic_name: ft_data
 
-
 joint_trajectory_controller:
   ros__parameters:
     joints:
@@ -60,12 +59,10 @@ joint_trajectory_controller:
       - wrist_3_joint
     command_interfaces:
       - position
+      - velocity
     state_interfaces:
       - position
       - velocity
-    state_publish_rate: 100.0
-    action_monitor_rate: 20.0
-    allow_partial_joints_goal: false
     constraints:
       stopped_velocity_tolerance: 0.2
       goal_time: 0.0
@@ -74,8 +71,38 @@ joint_trajectory_controller:
       elbow_joint: { trajectory: 0.2, goal: 0.1 }
       wrist_1_joint: { trajectory: 0.2, goal: 0.1 }
       wrist_2_joint: { trajectory: 0.2, goal: 0.1 }
-      wrist_3_joint: { trajectory: 0.2, goal: 0.1 }
-
+      wrist_3_joint: { trajectory: 0.2, goal: 0.1 }  
+    gains:
+      shoulder_pan_joint:
+        p: 4000.0
+        d: 10.0
+        i: 250.0
+        i_clamp: 15.0
+      shoulder_lift_joint:
+        p: 10000.0
+        d: 25.0
+        i: 600.0
+        i_clamp: 45.0
+      elbow_joint:
+        p: 8000.0
+        d: 20.0
+        i: 450.0
+        i_clamp: 30.0
+      wrist_1_joint:
+        p: 6000.0
+        d: 15.0
+        i: 300.0
+        i_clamp: 30.0
+      wrist_2_joint:
+        p: 3000.0
+        d: 5.0
+        i: 175.0
+        i_clamp: 7.0
+      wrist_3_joint:
+        p: 2500.0
+        d: 3.0
+        i: 150.0
+        i_clamp: 6.0
 
 scaled_joint_trajectory_controller:
   ros__parameters:
@@ -127,6 +154,22 @@ forward_position_controller:
 
 robotiq_gripper_controller:
   ros__parameters:
-    joint: robotiq_85_left_knuckle_joint
-    use_effort_interface: true
-    use_speed_interface: true
+    joints:
+      - robotiq_85_left_knuckle_joint
+      - robotiq_85_right_knuckle_joint
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+    gains:  
+      robotiq_85_left_knuckle_joint:
+        p: 50.0
+        d: 0.1
+        i: 20.0
+        i_clamp: 2.0
+      robotiq_85_right_knuckle_joint:
+        p: 50.0
+        d: 0.01
+        i: 20.0
+        i_clamp: 2.0

@@ -26,8 +26,6 @@
   <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
   <exec_depend>xacro</exec_depend>
-  <exec_depend>moveit_py</exec_depend>
-  <exec_depend>tf_transformations</exec_depend>
   <!-- The next 2 packages are required for the gazebo simulation.
        We don't include them by default to prevent installing gazebo and all its dependencies. -->
   <!-- <exec_depend>joint_trajectory_controller</exec_depend> -->

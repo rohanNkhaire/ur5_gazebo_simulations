@@ -169,8 +169,8 @@ def launch_setup(context, *args, **kwargs):
         launch_arguments={
             "gz_args": IfElseSubstitution(
                 gazebo_gui,
-                if_value=[" -r --physics-engine gz-physics-bullet-featherstone-plugin ", world_file],
-                else_value=[" -s -r -v 4 --physics-engine gz-physics-bullet-featherstone-plugin ", world_file],
+                if_value=[" -r  ", world_file],
+                else_value=[" -s -r -v 4 ", world_file],
             )
         }.items(),
     )

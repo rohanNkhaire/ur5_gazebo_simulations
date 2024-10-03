@@ -168,18 +168,18 @@
                 <surface>
                     <friction>
                     <ode>
-                        <mu1>100000.0</mu1>
-                        <mu2>100000.0</mu2>
+                        <mu1>10000</mu1>
+                        <mu2>10000</mu2>
                     </ode>
                     </friction>
                     <contact>
                     <ode>
-                        <kp>1e+5</kp>
-                        <kd>1</kd>
+                        <kp>10000</kp>
+                        <kd>0.1</kd>
                         <soft_cfm>0</soft_cfm>
                         <soft_erp>0.2</soft_erp>
-                        <minDepth>0.002</minDepth>
-                        <maxVel>0</maxVel>
+                        <minDepth>0.02</minDepth>
+                        <maxVel>0.5</maxVel>
                     </ode>
                     </contact>
                 </surface>
@@ -204,18 +204,18 @@
                 <surface>
                     <friction>
                     <ode>
-                        <mu1>100000.0</mu1>
-                        <mu2>100000.0</mu2>
+                        <mu1>10000</mu1>
+                        <mu2>10000</mu2>
                     </ode>
                     </friction>
                     <contact>
                     <ode>
-                        <kp>1e+5</kp>
-                        <kd>1</kd>
+                        <kp>10000</kp>
+                        <kd>0.1</kd>
                         <soft_cfm>0</soft_cfm>
                         <soft_erp>0.2</soft_erp>
                         <minDepth>0.002</minDepth>
-                        <maxVel>0</maxVel>
+                        <maxVel>0.5</maxVel>
                     </ode>
                     </contact>
                 </surface>
@@ -238,7 +238,7 @@
             <child link="${prefix}robotiq_85_left_knuckle_link" />
             <axis xyz="0 -1 0" />
             <origin xyz="0.03060114 0.0 0.05490452" rpy="0 0 0" />
-            <limit lower="0.0" upper="0.8" velocity="0.5" effort="50" />
+            <limit lower="0.0" upper="0.8" velocity="1.0" effort="28" />
         </joint>
 
         <joint name="${prefix}robotiq_85_right_knuckle_joint" type="revolute">
@@ -246,8 +246,7 @@
             <child link="${prefix}robotiq_85_right_knuckle_link" />
             <axis xyz="0 -1 0" />
             <origin xyz="-0.03060114 0.0 0.05490452" rpy="0 0 0" />
-            <limit lower="-0.8" upper="0.0" velocity="0.5" effort="50" />
-            <mimic joint="${prefix}robotiq_85_left_knuckle_joint" multiplier="-1" />
+            <limit lower="-0.8" upper="0.0" velocity="1.0" effort="28" />
         </joint>
 
         <joint name="${prefix}robotiq_85_left_finger_joint" type="fixed">
@@ -293,5 +292,23 @@
             <origin xyz="-0.00563134 0.0 0.04718515" rpy="0 0 0" />
             <mimic joint="${prefix}robotiq_85_left_knuckle_joint" />
         </joint>
+
+        <transmission name="robotiq_85_right_knuckle_joint_transmission">
+          <type>transmission_interface/SimpleTransmission</type>
+          <joint name="robotiq_85_right_knuckle_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+          </joint>
+          <actuator name="robotiq_85_right_knuckle_joint_actuator">
+          </actuator>
+        </transmission>
+
+        <transmission name="robotiq_85_leftknuckle_joint_transmission">
+          <type>transmission_interface/SimpleTransmission</type>
+          <joint name="robotiq_85_left_knuckle_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+          </joint>
+          <actuator name="robotiq_85_left_knuckle_joint_actuator">
+          </actuator>
+        </transmission>
     </xacro:macro>
 </robot>

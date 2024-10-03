@@ -306,7 +306,7 @@ void GraspPluginPrivate::DetachLinks(
   auto contacts = _ecm.Component<components::ContactSensorData>(item->second->collisionEntities.front());
 	if (this->isAttached && contacts->Data().contact_size() == 0)
 	{
-		gzwarn << "Removing entity: " << this->detachableJointEntity << std::endl;
+		gzerr << "Removing entity: " << this->detachableJointEntity << std::endl;
   	_ecm.RequestRemoveEntity(this->detachableJointEntity);
   	this->detachableJointEntity = kNullEntity;
   	this->isAttached = false;
