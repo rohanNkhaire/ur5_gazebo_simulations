@@ -1,0 +1,934 @@
+<sdf version='1.10'>
+  <world name='empty'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+            <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+            <specular>0.800000012 0.800000012 0.800000012 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='table'>
+      <link name='baseLink'>
+        <inertial>
+          <pose>0 0 0.59999999999999998 0 0 0</pose>
+          <mass>0.5</mass>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <collision name='baseLink_collision'>
+          <pose>0 0 1.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 1 0.050000000000000003</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_1'>
+          <pose>-0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_2'>
+          <pose>-0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_3'>
+          <pose>0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_4'>
+          <pose>0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name='baseLink_visual'>
+          <pose>0 0 1.2 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1.5 1 0.050000000000000003</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_1'>
+          <pose>-0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_2'>
+          <pose>-0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_3'>
+          <pose>0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_4'>
+          <pose>0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.77954256534576416 0.00010388623923063278 2.384185793236071e-08 0 0 1.5699999681373873</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='faucet_2'>
+      <link name='my_box'>
+        <inertial>
+          <pose>0 0.016350600374527111 0.065441519842212525 0 0 0</pose>
+          <mass>1.1000000000000001</mass>
+          <inertia>
+            <ixx>0.0036322062482339571</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0055468559491521283</iyy>
+            <iyz>-0.00026155754505019442</iyz>
+            <izz>0.0042153502990818301</izz>
+          </inertia>
+        </inertial>
+        <collision name='my_box_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='my_box_fixed_joint_lump__link_2_collision_1'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-4.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='my_box_fixed_joint_lump__link_2_collision_2'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-10.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='my_box_fixed_joint_lump__link_2_collision_3'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-11.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='my_box_fixed_joint_lump__link_2_collision_4'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-14.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='my_box_fixed_joint_lump__link_2_collision_5'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-13.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='my_box_fixed_joint_lump__link_2_collision_6'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-12.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='my_box_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.20000000000000001 0.20000000000000001 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Gray</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='my_box_fixed_joint_lump__vertical_support-8_visual_1'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-4.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='my_box_fixed_joint_lump__tube-5_visual_2'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-10.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='my_box_fixed_joint_lump__head-6_visual_3'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-11.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='my_box_fixed_joint_lump__head-6_visual_4'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-14.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='my_box_fixed_joint_lump__head-6_visual_5'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-13.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='my_box_fixed_joint_lump__mouth-7_visual_6'>
+          <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-12.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_0' type='revolute'>
+        <pose>3.4694469519536142e-18 0 3.1225022567582528e-17 0 5.5511151231257827e-17 0</pose>
+        <parent>my_box</parent>
+        <child>link_0</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1.570796326794897</lower>
+            <upper>1.570796326794897</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_0'>
+        <pose>4.8360253301904521e-08 0.020047726718201819 0.15998404869978455 1.5701122280356479 -0.00040742396848611202 -0.53709016699857126</pose>
+        <inertial>
+          <pose>0 -0.02 0 0 0 0</pose>
+          <mass>0.0080000000000000002</mass>
+          <inertia>
+            <ixx>4.0000000000000003e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>4.0000000000000003e-05</iyy>
+            <iyz>0</iyz>
+            <izz>1.2e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_0_collision'>
+          <pose>0 -0.085000000000000006 0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_1'>
+          <pose>0 -0.085000000000000006 0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-3.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_2'>
+          <pose>0 -0.085000000000000006 0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-2.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_3'>
+          <pose>0 -0.085000000000000006 0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-5.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_0_fixed_joint_lump__switch-2_visual'>
+          <pose>0 -0.085000000000000006 0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__switch-2_visual_1'>
+          <pose>0 -0.085000000000000006 0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-3.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__switch-2_visual_2'>
+          <pose>0 -0.085000000000000006 0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__switch-2_visual_3'>
+          <pose>0 -0.085000000000000006 0.02 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>model://urdf/faucet/textured_objs/original-5.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <frame name='joint_base' attached_to='my_box'>
+        <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
+      </frame>
+      <frame name='link_2' attached_to='joint_base'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <pose>0.46518950871013931 -0.35021882081094652 1.2399999721613513 -2.2160620866738731e-07 -3.0009751783851046e-07 -1.5700001408169877</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='pot'>
+      <link name='link_1'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.25</mass>
+          <inertia>
+            <ixx>0.00035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00050000000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.00042499999999999998</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_1_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-29.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-21.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-30.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-22.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-26.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_5'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-5.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_6'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-27.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_7'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-6.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_8'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-31.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_9'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-23.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_10'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-25.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_11'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-7.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_1_collision_12'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-19.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-29.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-21.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-30.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-22.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-26.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_5'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-5.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_6'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-27.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_7'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-6.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_8'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-31.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_9'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-23.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_10'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-25.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_11'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-7.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_1_fixed_joint_lump__base_body-2_visual_12'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-19.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='joint_0' type='prismatic'>
+        <pose>0 -1.0587911840678754e-22 0 0 -2.2119745393568457e-26 0</pose>
+        <parent>link_1</parent>
+        <child>link_0</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0.059999999999999998</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='link_0'>
+        <pose>-1.6213473896797836e-09 -1.2979528158929554e-06 -2.9568100579080436e-08 1.4845947902008717e-12 2.3151704923792541e-10 5.8151363238634579e-10</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.00029999999999999997</mass>
+          <inertia>
+            <ixx>0.00035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00050000000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.00042499999999999998</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_0_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-17.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-10.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-11.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-8.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-1.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_5'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-13.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_6'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-15.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_7'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-14.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='link_0_collision_8'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-16.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='link_0_fixed_joint_lump__lid-1_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-17.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__lid-1_visual_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-10.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__lid-1_visual_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-11.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__lid-1_visual_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-8.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__lid-1_visual_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__lid-1_visual_5'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-13.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__lid-1_visual_6'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-15.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__lid-1_visual_7'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-14.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='link_0_fixed_joint_lump__lid-1_visual_8'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.14999999999999999 0.14999999999999999 0.14999999999999999</scale>
+              <uri>model://urdf/pot/textured_objs/original-16.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.4315638542175293 0.39865267276763916 1.2814100980758667 1.5675700665099275 -0.0012333895591006274 -0.0046168899437927322</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.0099999997764825821</linear>
+        <constant>0.89999997615814209</constant>
+        <quadratic>0.0010000000474974513</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

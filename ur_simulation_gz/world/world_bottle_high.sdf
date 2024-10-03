@@ -8,7 +8,7 @@
     <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
     <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
     <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
-    <plugin name='gz::sim::systems::GraspPlugin' filename='GraspPlugin'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
     <gravity>0 0 -9.8000000000000007</gravity>
     <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
@@ -59,11 +59,6 @@
       <pose>0 0 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
-    <include>
-      <uri>file:///home/rohan/Projects/pick_n_place/src/models/Table</uri>
-      <name>Table</name>
-      <pose>-0.55000001192092896 0 0 0 0 -1.5699999681373873</pose>
-    </include>
     <model name='simple_box_v3'>
       <link name='my_box'>
         <inertial>
@@ -111,7 +106,7 @@
         <pose>0 0 0 0 0 0</pose>
         <enable_wind>false</enable_wind>
       </link>
-      <pose>-0.43764832615852356 -0.0777134969830513 1.0299999713897705 0 0 0</pose>
+      <pose>-0.435280442237854 0.043602108955383301 1.2395278215408325 0 0 0</pose>
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
@@ -162,81 +157,7 @@
         <pose>0 0 0 0 0 0</pose>
         <enable_wind>false</enable_wind>
       </link>
-      <pose>-0.26866200566291809 0.24690084159374237 1.0299999713897705 0 0 0</pose>
-      <static>false</static>
-      <self_collide>false</self_collide>
-    </model>
-    <model name='FoodCourtTable1'>
-      <static>false</static>
-      <link name='body'>
-        <pose>0 0 0 0 0 0</pose>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://FoodCourtTable1/meshes/FoodCourtTable1.obj</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://FoodCourtTable1/meshes/FoodCourtTable1_Col.obj</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <pose>0.44999998807907104 0 0.0099999997764825821 0 0 0</pose>
-      <self_collide>false</self_collide>
-    </model>
-    <model name='bottle_3'>
-      <link name='link_0'>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>0.029999999999999999</mass>
-          <inertia>
-            <ixx>5.0000000000000002e-05</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>5.0000000000000002e-05</iyy>
-            <iyz>0</iyz>
-            <izz>5.0000000000000002e-05</izz>
-          </inertia>
-        </inertial>
-        <collision name='link_0_collision'>
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <visual name='link_0_fixed_joint_lump__body-5_visual'>
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <pose>0 0 0 0 0 0</pose>
-        <enable_wind>false</enable_wind>
-      </link>
-      <pose>0.38982504606246948 0.21747681498527527 0.79619663953781128 -3.141592381032011 0.072409385843928212 -1.5698335588091064</pose>
+      <pose>-0.26297366619110107 0.25308659672737122 1.2393656969070435 0 0 0</pose>
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
@@ -275,46 +196,7 @@
         <pose>0 0 0 0 0 0</pose>
         <enable_wind>false</enable_wind>
       </link>
-      <pose>-0.41094619035720825 0.37157455086708069 1.1171829700469971 1.5707904690516246 -1.1185364963846749e-05 0.0293734048391413</pose>
-      <static>false</static>
-      <self_collide>false</self_collide>
-    </model>
-    <model name='bottle_6'>
-      <link name='link_0'>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>0.029999999999999999</mass>
-          <inertia>
-            <ixx>5.0000000000000002e-05</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>5.0000000000000002e-05</iyy>
-            <iyz>0</iyz>
-            <izz>5.0000000000000002e-05</izz>
-          </inertia>
-        </inertial>
-        <collision name='link_0_collision'>
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <visual name='link_0_fixed_joint_lump__body-5_visual'>
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <mesh>
-              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <pose>0 0 0 0 0 0</pose>
-        <enable_wind>false</enable_wind>
-      </link>
-      <pose>0.4042629599571228 -0.31801706552505493 0.84900063276290894 1.5708180580633595 1.8981604935086901e-06 -1.550016411131681</pose>
+      <pose>-0.3982139527797699 0.48670482635498047 1.3263729810714722 1.5700259237802097 -9.0717483646398598e-05 -0.037109633437907588</pose>
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
@@ -353,61 +235,177 @@
         <pose>0 0 0 0 0 0</pose>
         <enable_wind>false</enable_wind>
       </link>
-      <pose>-0.34062382578849792 -0.36286482214927673 1.059999942779541 0 0 0.010000002573111321</pose>
+      <pose>-0.36670449376106262 -0.38700497150421143 1.2741327285766602 -3.1410100013767162 0.07031219263535772 -3.1183131938118787</pose>
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
-    <model name='simple_box_v4'>
-      <link name='my_box'>
+    <model name='Table'>
+      <link name='baseLink'>
         <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>0.050000000000000003</mass>
+          <pose>0 0 0.59999999999999998 0 0 0</pose>
+          <mass>0.5</mass>
           <inertia>
-            <ixx>0</ixx>
+            <ixx>0.001</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0</iyy>
+            <iyy>0.001</iyy>
             <iyz>0</iyz>
-            <izz>0</izz>
+            <izz>0.001</izz>
           </inertia>
         </inertial>
-        <collision name='my_box_collision'>
-          <pose>0 0 0 0 0 0</pose>
+        <collision name='baseLink_collision'>
+          <pose>0 0 1.2 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+              <size>1.5 1 0.050000000000000003</size>
             </box>
           </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <friction>
-              <ode/>
-            </friction>
-          </surface>
         </collision>
-        <visual name='my_box_visual'>
-          <pose>0 0 0 0 0 0</pose>
+        <collision name='baseLink_collision_1'>
+          <pose>-0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.029999999999999999 0.029999999999999999 0.029999999999999999</size>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
             </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_2'>
+          <pose>-0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_3'>
+          <pose>0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_4'>
+          <pose>0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name='baseLink_visual'>
+          <pose>0 0 1.2 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1.5 1 0.050000000000000003</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+            </mesh>
           </geometry>
           <material>
-            <script>
-              <name>Gazebo/Red</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
           </material>
+        </visual>
+        <visual name='baseLink_visual_1'>
+          <pose>-0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_2'>
+          <pose>-0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_3'>
+          <pose>0.65000000000000002 -0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_4'>
+          <pose>0.65000000000000002 0.40000000000000002 0.59999999999999998 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
+              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
         </visual>
         <pose>0 0 0 0 0 0</pose>
         <enable_wind>false</enable_wind>
       </link>
-      <pose>0.39318400621414185 -0.036558512598276138 0.76181811094284058 0 0 0</pose>
+      <pose>-0.6529796754883137 -0.00030219815962482242 -0.00044373273849485084 1.1384099893390131e-05 0.00075192201529567968 1.5666394579768517</pose>
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
+    <model name='FoodCourtTable1'>
+      <static>false</static>
+      <link name='body'>
+        <pose>0 0 0 0 0 0</pose>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://FoodCourtTable1/meshes/FoodCourtTable1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://FoodCourtTable1/meshes/FoodCourtTable1_Col.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.51150679588317871 0.47414401173591614 0.0099991671741008759 2.1465616038869464e-08 2.6918032745346722e-06 -3.2345765817497727e-09</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <include>
+      <uri>file:///home/rohan/Projects/pick_n_place/src/models/Small Blue Box</uri>
+      <name>Small Blue Box</name>
+      <pose>0.41087301854922798 0.14887356100577306 0.74689373606576415 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/rohan/Projects/pick_n_place/src/models/Suitcase2H</uri>
+      <name>Suitcase2H</name>
+      <pose>0.34825289249420166 -0.30236494541168213 0 0 0 0</pose>
+    </include>
     <light name='sun' type='directional'>
       <pose>0 0 10 0 0 0</pose>
       <cast_shadows>true</cast_shadows>

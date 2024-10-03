@@ -1,4 +1,4 @@
-#include "gazebo_grasp_plugin.hh"
+#include "GraspPlugin.hh"
 
 #include <gz/msgs/contact.pb.h>
 #include <gz/msgs/contacts.pb.h>
@@ -15,6 +15,7 @@
 
 #include <gz/transport/Node.hh>
 
+#include "gz/sim/Model.hh"
 #include "gz/sim/Conversions.hh"
 #include "gz/sim/EntityComponentManager.hh"
 #include "gz/sim/Util.hh"
@@ -93,6 +94,8 @@ class gz::sim::systems::GraspPluginPrivate
   public: std::unordered_map<Entity,
       std::unique_ptr<ContactSensor>> entitySensorMap;
 
+  /// \brief Model interface
+  public: Model model{kNullEntity};
 	/// \brief Entity of attachment link in the parent model
   public: Entity parentLinkEntity{kNullEntity};
   /// \brief Entity of attachment link in the child model
@@ -177,6 +180,15 @@ void GraspPluginPrivate::CreateSensors(EntityComponentManager &_ecm)
           // GraspPlugin sensors should only be attached to links
           return true;
         }
+
+        auto *parentEntitym = _ecm.Component<components::ParentEntity>(parentEntity->Data());
+        if (nullptr == parentEntitym)
+          return true;  
+
+        this->model = Model(parentEntitym->Data());
+
+        // Get the palm link
+        this->parentLinkEntity = this->model.LinkByName(_ecm, "wrist_3_link");
 
         auto collisionElem =
             _contact->Data()->GetElement("contact")->GetElement("collision");
@@ -265,19 +277,25 @@ void GraspPluginPrivate::AttachLinks(
 {
 	GZ_PROFILE("GraspPluginPrivate::AttachLinks");
   auto item = this->entitySensorMap.begin();
-	if (item->second->collisionEntities.empty())
-		return;
+  auto contacts = _ecm.Component<components::ContactSensorData>(item->second->collisionEntities.front());
+  
+  if (contacts->Data().contact_size() > 0 && this->isAttached == false)
+  {
+	  this->detachableJointEntity = _ecm.CreateEntity();
+    auto childLinkId = contacts->Data().contact().begin()->collision2().id();
+    auto childLinkCollision = Entity(childLinkId);
+    auto *parentEntity = _ecm.Component<components::ParentEntity>(childLinkCollision);
+    this->childLinkEntity = parentEntity->Data();
 
-	this->detachableJointEntity = _ecm.CreateEntity();
-	this->childLinkEntity = this->entitySensorMap.begin()->second->collisionEntities.at(0);
-	_ecm.CreateComponent(
-            this->detachableJointEntity,
-            components::DetachableJoint({this->parentLinkEntity,
-                                         this->childLinkEntity, "fixed"}));
-	
-	this->isAttached = true;
-	gzwarn << "Attaching entity: " << this->detachableJointEntity
-               << std::endl;
+	  _ecm.CreateComponent(
+              this->detachableJointEntity,
+              components::DetachableJoint({this->parentLinkEntity,
+                                           this->childLinkEntity, "fixed"}));
+  
+	  this->isAttached = true;
+	  gzerr << "Attaching entity: " << this->detachableJointEntity
+                 << std::endl;
+  }
 }
 
 void GraspPluginPrivate::DetachLinks(
@@ -285,7 +303,8 @@ void GraspPluginPrivate::DetachLinks(
 {
 	GZ_PROFILE("GraspPluginPrivate::DetachLinks");
   auto item = this->entitySensorMap.begin();
-	if (this->isAttached && item->second->collisionEntities.empty())
+  auto contacts = _ecm.Component<components::ContactSensorData>(item->second->collisionEntities.front());
+	if (this->isAttached && contacts->Data().contact_size() == 0)
 	{
 		gzwarn << "Removing entity: " << this->detachableJointEntity << std::endl;
   	_ecm.RequestRemoveEntity(this->detachableJointEntity);
@@ -300,42 +319,17 @@ GraspPlugin::GraspPlugin() : System(), dataPtr(std::make_unique<GraspPluginPriva
 }
 
 //////////////////////////////////////////////////
-void GraspPlugin::Configure(const Entity &_entity,
-    const std::shared_ptr<const sdf::Element> &_sdf,
-    EntityComponentManager &_ecm,
-    EventManager &/*_eventMgr*/)
-{
-   // Check if the parent entity is a link
-  auto *parentEntity = _ecm.Component<components::ParentEntity>(_entity);
-  if (nullptr == parentEntity)
-  {
-    gzerr << "The parent entity is not a link."
-           << "Failed to initialize." << std::endl;
-    return;
-  }
-
-  // Get the palm link
-  auto childEntities = _ecm.ChildrenByComponents(
-              parentEntity->Data(), components::Name("wrist_3_link"));
-
-  if (childEntities.empty())
-  {
-    gzerr << "The palm link does not exist."
-           << "Failed to initialize." << std::endl;
-    return;
-  }
-  // We assume that the palm link is unique
-  this->dataPtr->parentLinkEntity = childEntities.at(0);
-}
-
-//////////////////////////////////////////////////
 void GraspPlugin::PreUpdate(const UpdateInfo &, EntityComponentManager &_ecm)
 {
   GZ_PROFILE("GraspPlugin::PreUpdate");
   this->dataPtr->CreateSensors(_ecm);
-	this->dataPtr->AttachLinks(_ecm);
-	this->dataPtr->DetachLinks(_ecm);
+  if (!this->dataPtr->entitySensorMap.empty())
+  {
+	  this->dataPtr->AttachLinks(_ecm);
+	  this->dataPtr->DetachLinks(_ecm);
+  }
 }
+
 
 //////////////////////////////////////////////////
 void GraspPlugin::PostUpdate(const UpdateInfo &_info,
@@ -366,7 +360,6 @@ void GraspPlugin::PostUpdate(const UpdateInfo &_info,
 }
 
 GZ_ADD_PLUGIN(GraspPlugin, System,
-  GraspPlugin::ISystemConfigure,
   GraspPlugin::ISystemPreUpdate,
   GraspPlugin::ISystemPostUpdate
 )

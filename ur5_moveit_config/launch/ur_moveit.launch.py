@@ -115,8 +115,6 @@ def generate_launch_description():
         MoveItConfigsBuilder(robot_name="ur", package_name="ur5_moveit_config")
         .robot_description_semantic(Path("srdf") / "ur.srdf", {"name": ur_type})
         .planning_pipelines("ompl", ["ompl", "chomp", "pilz_industrial_motion_planner"])
-        .moveit_cpp(file_path=get_package_share_directory("ur5_moveit_config")
-            + "/config/moveit_cpp.yaml")
         .to_moveit_configs()
     )
 

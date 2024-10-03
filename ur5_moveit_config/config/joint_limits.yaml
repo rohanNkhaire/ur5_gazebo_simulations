@@ -8,15 +8,15 @@ joint_limits:
     max_acceleration: 1.225
   shoulder_lift_joint:
     has_position_limits: true
-    max_position: 6.283
-    min_position: -6.283
+    max_position: -0.6
+    min_position: -2.5
     max_effort: 150.0
     has_acceleration_limits: true
     max_acceleration: 1.225
   elbow_joint:
     has_position_limits: true
-    max_position: 3.14
-    min_position: -3.14
+    max_position: 6.28
+    min_position: -6.28
     max_effort: 150.0
     has_acceleration_limits: true
     max_acceleration: 1.225

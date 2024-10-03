@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.11.0 FATAL_ERROR)
 
 find_package(gz-cmake3 REQUIRED)
 
-project(gazebo_grasp_plugin)
+project(GraspPlugin)
 
 gz_find_package(gz-plugin2 REQUIRED COMPONENTS register)
 set(GZ_PLUGIN_VER ${gz-plugin2_VERSION_MAJOR})

@@ -100,6 +100,17 @@
     </plugin>
   </gazebo>
 
+  <gazebo reference="robotiq_85_left_finger_tip_link">
+  <sensor name='sensor_contact' type='contact'>
+    <contact>
+        <collision>robotiq_85_left_finger_tip_link_collision</collision>
+        <topic>/gripper_contact</topic>
+    </contact>
+      <always_on>1</always_on>
+      <update_rate>100</update_rate>
+    </sensor>
+  </gazebo>  
+
   <!-- ros2 control instance -->
   <xacro:ur_ros2_control
     name="$(arg name)"
