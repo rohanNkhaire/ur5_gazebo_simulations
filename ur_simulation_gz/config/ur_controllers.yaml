@@ -167,9 +167,9 @@ robotiq_gripper_controller:
         p: 100.0
         d: 0.1
         i: 20.0
-        i_clamp: 0.5
+        i_clamp: 4.0
       robotiq_85_right_knuckle_joint:
         p: 100.0
         d: 0.1
         i: 20.0
-        i_clamp: 0.5
+        i_clamp: 4.0
