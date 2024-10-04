@@ -168,17 +168,17 @@
                 <surface>
                     <friction>
                     <ode>
-                        <mu1>10000</mu1>
-                        <mu2>10000</mu2>
+                        <mu1>100000.0</mu1>
+                        <mu2>100000.0</mu2>
                     </ode>
                     </friction>
                     <contact>
                     <ode>
-                        <kp>10000</kp>
-                        <kd>0.1</kd>
+                        <kp>1e+5</kp>
+                        <kd>1</kd>
                         <soft_cfm>0</soft_cfm>
                         <soft_erp>0.2</soft_erp>
-                        <minDepth>0.02</minDepth>
+                        <minDepth>0.002</minDepth>
                         <maxVel>0.5</maxVel>
                     </ode>
                     </contact>
@@ -204,14 +204,14 @@
                 <surface>
                     <friction>
                     <ode>
-                        <mu1>10000</mu1>
-                        <mu2>10000</mu2>
+                        <mu1>100000.0</mu1>
+                        <mu2>100000.0</mu2>
                     </ode>
                     </friction>
                     <contact>
                     <ode>
-                        <kp>10000</kp>
-                        <kd>0.1</kd>
+                        <kp>1e+5</kp>
+                        <kd>1</kd>
                         <soft_cfm>0</soft_cfm>
                         <soft_erp>0.2</soft_erp>
                         <minDepth>0.002</minDepth>
@@ -238,7 +238,7 @@
             <child link="${prefix}robotiq_85_left_knuckle_link" />
             <axis xyz="0 -1 0" />
             <origin xyz="0.03060114 0.0 0.05490452" rpy="0 0 0" />
-            <limit lower="0.0" upper="0.8" velocity="1.0" effort="28" />
+            <limit lower="0.0" upper="0.8" velocity="1.0" effort="75" />
         </joint>
 
         <joint name="${prefix}robotiq_85_right_knuckle_joint" type="revolute">
@@ -246,7 +246,7 @@
             <child link="${prefix}robotiq_85_right_knuckle_link" />
             <axis xyz="0 -1 0" />
             <origin xyz="-0.03060114 0.0 0.05490452" rpy="0 0 0" />
-            <limit lower="-0.8" upper="0.0" velocity="1.0" effort="28" />
+            <limit lower="-0.8" upper="0.0" velocity="1.0" effort="75" />
         </joint>
 
         <joint name="${prefix}robotiq_85_left_finger_joint" type="fixed">

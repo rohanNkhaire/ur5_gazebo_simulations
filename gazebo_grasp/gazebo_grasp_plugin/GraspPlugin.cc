@@ -19,11 +19,13 @@
 #include "gz/sim/Conversions.hh"
 #include "gz/sim/EntityComponentManager.hh"
 #include "gz/sim/Util.hh"
+#include "gz/sim/components/JointForceCmd.hh"
 #include "gz/sim/components/Collision.hh"
 #include "gz/sim/components/ContactSensor.hh"
 #include "gz/sim/components/ContactSensorData.hh"
 #include "gz/sim/components/DetachableJoint.hh"
 #include "gz/sim/components/Link.hh"
+#include <gz/sim/Joint.hh>
 #include "gz/sim/components/Name.hh"
 #include "gz/sim/components/ParentEntity.hh"
 
@@ -107,7 +109,21 @@ class gz::sim::systems::GraspPluginPrivate
   /// \brief Whether attachment has been requested
   private: std::atomic<bool> attachRequested{true};
   /// \brief Whether child entity is attached
-  private: std::atomic<bool> isAttached{false};			
+  private: std::atomic<bool> isAttached{false};
+  ///  \brief Joint position for the gripper
+  private: double jointPosition;
+  ///  \brief Joint position for the gripper at first contact
+  private: double initJointPosition;
+  ///  \brief Joint position for the gripper
+  private: double prevJointPosition{-1.0};
+  ///  \brief Joint position for the gripper
+  private: double jointDiff{9999.0};
+  ///  \brief Joint controlling the contact link
+  private: Entity desiredJointEntity{kNullEntity};
+  ///  \brief Joint controlling the contact link
+  private: Joint desiredJoint{kNullEntity};
+  ///  \brief initialize parameters
+  private: std::atomic<bool> initialziedParams{false};
 };
 
 //////////////////////////////////////////////////
@@ -185,10 +201,18 @@ void GraspPluginPrivate::CreateSensors(EntityComponentManager &_ecm)
         if (nullptr == parentEntitym)
           return true;  
 
-        this->model = Model(parentEntitym->Data());
+        if (!this->initialziedParams)
+        {
+          // Get the robot arm model
+          this->model = Model(parentEntitym->Data());
 
-        // Get the palm link
-        this->parentLinkEntity = this->model.LinkByName(_ecm, "wrist_3_link");
+          // Get the palm link
+          this->parentLinkEntity = this->model.LinkByName(_ecm, "wrist_3_link");
+          this->desiredJointEntity = this->model.JointByName(_ecm, "robotiq_85_left_knuckle_joint");
+          this->desiredJoint = Joint(this->desiredJointEntity);
+
+          this->initialziedParams = true;
+        }
 
         auto collisionElem =
             _contact->Data()->GetElement("contact")->GetElement("collision");
@@ -238,7 +262,6 @@ void GraspPluginPrivate::UpdateSensors(const UpdateInfo &_info,
     for (const Entity &entity : item.second->collisionEntities)
     {
       auto contacts = _ecm.Component<components::ContactSensorData>(entity);
-
       // We will assume that the ContactData component will have been created if
       // this entity is in the collisionEntities list
       if (contacts->Data().contact_size() > 0)
@@ -278,21 +301,34 @@ void GraspPluginPrivate::AttachLinks(
 	GZ_PROFILE("GraspPluginPrivate::AttachLinks");
   auto item = this->entitySensorMap.begin();
   auto contacts = _ecm.Component<components::ContactSensorData>(item->second->collisionEntities.front());
-  
-  if (contacts->Data().contact_size() > 0 && this->isAttached == false)
+
+  auto force = _ecm.Component<components::JointForceCmd>(this->desiredJointEntity);
+
+  // Let the gripper position come to halt before attaching the object
+  if (contacts->Data().contact_size() > 0)
+  {
+    auto jointPositionVec = this->desiredJoint.Position(_ecm);
+    this->jointPosition = jointPositionVec->front();
+    this->jointDiff = this->jointPosition - this->prevJointPosition;
+    this->prevJointPosition = this->jointPosition;
+  }
+
+  if (abs(this->jointDiff) < 1e-7 && this->isAttached == false)
   {
 	  this->detachableJointEntity = _ecm.CreateEntity();
     auto childLinkId = contacts->Data().contact().begin()->collision2().id();
     auto childLinkCollision = Entity(childLinkId);
     auto *parentEntity = _ecm.Component<components::ParentEntity>(childLinkCollision);
     this->childLinkEntity = parentEntity->Data();
-
+    force->Data()[0] += -1.0;
 	  _ecm.CreateComponent(
               this->detachableJointEntity,
               components::DetachableJoint({this->parentLinkEntity,
                                            this->childLinkEntity, "fixed"}));
   
 	  this->isAttached = true;
+    this->jointDiff = 999.0;
+    this->prevJointPosition = -1.0;
 	  gzerr << "Attaching entity: " << this->detachableJointEntity
                  << std::endl;
   }
@@ -302,15 +338,17 @@ void GraspPluginPrivate::DetachLinks(
     EntityComponentManager &_ecm)
 {
 	GZ_PROFILE("GraspPluginPrivate::DetachLinks");
-  auto item = this->entitySensorMap.begin();
-  auto contacts = _ecm.Component<components::ContactSensorData>(item->second->collisionEntities.front());
-	if (this->isAttached && contacts->Data().contact_size() == 0)
+
+  // The joint has value between 0.0 and 0.8
+  auto detachJointValue = this->jointPosition - this->jointPosition*0.1; 
+	if (this->isAttached && this->desiredJoint.Position(_ecm)->front() < detachJointValue)
 	{
 		gzerr << "Removing entity: " << this->detachableJointEntity << std::endl;
   	_ecm.RequestRemoveEntity(this->detachableJointEntity);
   	this->detachableJointEntity = kNullEntity;
   	this->isAttached = false;
 	}
+
 }
 
 //////////////////////////////////////////////////

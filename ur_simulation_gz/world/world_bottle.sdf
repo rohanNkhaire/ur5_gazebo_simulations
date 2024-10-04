@@ -1,10 +1,12 @@
 <sdf version='1.10'>
   <world name='empty'>
-    <physics name='2ms' type='dart'>
+    <physics name='2ms' type='bullet'>
       <max_step_size>0.001</max_step_size>
-      <real_time_factor>1</real_time_factor>
-      <real_time_update_rate>1000</real_time_update_rate>
+      <real_time_factor>100</real_time_factor>
       <dart>
+        <solver type="pgs">
+          <solver_type>dantzig</solver_type>
+        </solver>
         <collision_detector>bullet</collision_detector>
       </dart>
     </physics>
@@ -219,13 +221,21 @@
           </inertia>
         </inertial>
         <collision name='link_0_collision'>
-          <pose>0 0 0 0 0 0</pose>
+          <pose>0 0 0 -1.571 0 0</pose>
           <geometry>
-            <mesh>
-              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
-            </mesh>
+            <cylinder>
+              <radius> 0.04 </radius>
+              <length> 0.168 </length>
+            </cylinder>
           </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
         </collision>
         <visual name='link_0_fixed_joint_lump__body-5_visual'>
           <pose>0 0 0 0 0 0</pose>
@@ -286,38 +296,52 @@
       <link name='link_0'>
         <inertial>
           <pose>0 0 0 0 0 0</pose>
-          <mass>0.029999999999999999</mass>
+          <mass>0.3</mass>
           <inertia>
-            <ixx>5.0000000000000002e-05</ixx>
+            <ixx>0.0008256</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>5.0000000000000002e-05</iyy>
+            <iyy>0.0008256</iyy>
             <iyz>0</iyz>
-            <izz>5.0000000000000002e-05</izz>
+            <izz>0.00024</izz>
           </inertia>
         </inertial>
         <collision name='link_0_collision'>
           <pose>0 0 0 0 0 0</pose>
           <geometry>
-            <mesh>
-              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
-            </mesh>
+            <cylinder>
+              <radius> 0.03 </radius>
+              <length> 0.168 </length>
+            </cylinder>
           </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+              </ode>
+            </friction>
+          </surface>
         </collision>
         <visual name='link_0_fixed_joint_lump__body-5_visual'>
           <pose>0 0 0 0 0 0</pose>
           <geometry>
-            <mesh>
-              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
-            </mesh>
+            <cylinder>
+              <radius> 0.03 </radius>
+              <length> 0.168 </length>
+            </cylinder>
           </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
         </visual>
-        <pose>0 0 0 0 0 0</pose>
         <enable_wind>false</enable_wind>
       </link>
-      <pose>0.4042629599571228 -0.31801706552505493 0.84900063276290894 1.5708180580633595 1.8981604935086901e-06 -1.550016411131681</pose>
+      <pose>0.4042629599571228 -0.31801706552505493 0.84900063276290894 0.0 0.0 0.0</pose>
       <static>false</static>
       <self_collide>false</self_collide>
     </model>

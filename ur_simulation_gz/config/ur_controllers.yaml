@@ -164,12 +164,12 @@ robotiq_gripper_controller:
       - velocity
     gains:  
       robotiq_85_left_knuckle_joint:
-        p: 50.0
+        p: 100.0
         d: 0.1
         i: 20.0
-        i_clamp: 2.0
+        i_clamp: 0.5
       robotiq_85_right_knuckle_joint:
-        p: 50.0
-        d: 0.01
+        p: 100.0
+        d: 0.1
         i: 20.0
-        i_clamp: 2.0
+        i_clamp: 0.5

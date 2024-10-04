@@ -169,7 +169,7 @@ def launch_setup(context, *args, **kwargs):
         launch_arguments={
             "gz_args": IfElseSubstitution(
                 gazebo_gui,
-                if_value=[" -r  ", world_file],
+                if_value=[" -r ", world_file],
                 else_value=[" -s -r -v 4 ", world_file],
             )
         }.items(),
