@@ -3,10 +3,18 @@ project(ur5_moveit_config)
 
 find_package(ament_cmake REQUIRED)
 
+# Install Python execs
+ament_python_install_package(${PROJECT_NAME})
+
+install(PROGRAMS
+  scripts/world_bottle/picknplace_bottle_low
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()
 
 install(
-  DIRECTORY launch
+  DIRECTORY config launch srdf
   DESTINATION share/${PROJECT_NAME}
   PATTERN "setup_assistant.launch" EXCLUDE)
 install(DIRECTORY config DESTINATION share/${PROJECT_NAME})

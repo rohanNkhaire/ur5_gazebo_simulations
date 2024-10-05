@@ -202,7 +202,7 @@
           <geometry>
             <mesh>
               <scale>0.08000000000000001 0.10000000000000001 0.08000000000000001</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+              <uri>model://urdf/bottle_v2/textured_objs/new-1.obj</uri>
             </mesh>
           </geometry>
         </visual>
@@ -250,7 +250,7 @@
           <geometry>
             <mesh>
               <scale>0.08000000000000001 0.10000000000000001 0.08000000000000001</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+              <uri>model://urdf/bottle_v2/textured_objs/new-1.obj</uri>
             </mesh>
           </geometry>
         </visual>
@@ -370,7 +370,7 @@
           <geometry>
             <mesh>
               <scale>1.5 1 0.050000000000000003</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -383,7 +383,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 0.975</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -396,7 +396,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 0.975</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -409,7 +409,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 0.975</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -422,7 +422,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 0.975</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
         </visual>
@@ -492,7 +492,7 @@
           <geometry>
             <mesh>
               <scale>1.5 1 0.050000000000000003</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -505,7 +505,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 0.6862</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -518,7 +518,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 0.6862</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -531,7 +531,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 0.6862</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -544,7 +544,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 0.6862</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
         </visual>
