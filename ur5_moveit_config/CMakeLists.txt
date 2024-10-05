@@ -7,8 +7,10 @@ find_package(ament_cmake REQUIRED)
 ament_python_install_package(${PROJECT_NAME})
 
 install(PROGRAMS
-  scripts/picknplace
-  scripts/follow_pose
+  scripts/world_bottle/picknplace_bottle_low
+  scripts/world_bottle/picknplace_bottle_high
+  scripts/world_bottle/picknplace_cube_low
+  scripts/world_bottle/picknplace_cube_high
   DESTINATION lib/${PROJECT_NAME}
 )
 

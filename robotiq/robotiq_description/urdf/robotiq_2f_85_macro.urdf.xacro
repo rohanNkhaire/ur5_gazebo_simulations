@@ -165,24 +165,6 @@
                 <geometry>
                     <mesh filename="file://$(find robotiq_description)/meshes/collision/2f_85/left_finger_tip.stl" />
                 </geometry>
-                <surface>
-                    <friction>
-                    <ode>
-                        <mu1>100000.0</mu1>
-                        <mu2>100000.0</mu2>
-                    </ode>
-                    </friction>
-                    <contact>
-                    <ode>
-                        <kp>1e+5</kp>
-                        <kd>1</kd>
-                        <soft_cfm>0</soft_cfm>
-                        <soft_erp>0.2</soft_erp>
-                        <minDepth>0.002</minDepth>
-                        <maxVel>0</maxVel>
-                    </ode>
-                    </contact>
-                </surface>
             </collision>
             <inertial>
                 <origin xyz="-0.01456706 -0.0008 0.01649701" rpy="0 0 0" />
@@ -190,6 +172,22 @@
                 <inertia ixx="1.048152e-05" iyy="1.197888e-05" izz="4.22784e-06" ixy="0.0" ixz="3.5232e-6" iyz="0.0" />
             </inertial>
         </link>
+        <gazebo reference="${prefix}robotiq_85_left_finger_tip_link">
+            <mu1>1000</mu1>
+            <mu2>1000</mu2>
+            <kp>1000000.0</kp>
+            <kd>100000.0</kd>
+            <slip1>0</slip1>
+            <slip2>0</slip2>
+            <minDepth>0.001</minDepth>
+            <maxVel>0</maxVel>
+            <torsional>
+                <ode>
+                    <coefficient>1000</coefficient>
+                    <slip>0</slip>
+                </ode>
+            </torsional>
+        </gazebo>
 
         <link name="${prefix}robotiq_85_right_finger_tip_link">
             <visual>
@@ -201,24 +199,6 @@
                 <geometry>
                     <mesh filename="file://$(find robotiq_description)/meshes/collision/2f_85/right_finger_tip.stl" />
                 </geometry>
-                <surface>
-                    <friction>
-                    <ode>
-                        <mu1>100000.0</mu1>
-                        <mu2>100000.0</mu2>
-                    </ode>
-                    </friction>
-                    <contact>
-                    <ode>
-                        <kp>1e+5</kp>
-                        <kd>1</kd>
-                        <soft_cfm>0</soft_cfm>
-                        <soft_erp>0.2</soft_erp>
-                        <minDepth>0.002</minDepth>
-                        <maxVel>0</maxVel>
-                    </ode>
-                    </contact>
-                </surface>
             </collision>
             <inertial>
                 <origin xyz="0.01456706 5e-05 0.01649701" rpy="0 0 0" />
@@ -226,6 +206,22 @@
                 <inertia ixx="1.048152e-05" iyy="1.197888e-05" izz="4.22784e-06" ixy="0.0" ixz="-3.5232e-06" iyz="0.0" />
             </inertial>
         </link>
+        <gazebo reference="${prefix}robotiq_85_right_finger_tip_link">
+            <mu1>1000</mu1>
+            <mu2>1000</mu2>
+            <kp>1000000.0</kp>
+            <kd>100000.0</kd>
+            <slip1>0</slip1>
+            <slip2>0</slip2>
+            <minDepth>0.001</minDepth>
+            <maxVel>0</maxVel>
+            <torsional>
+                <ode>
+                    <coefficient>1000</coefficient>
+                    <slip>0</slip>
+                </ode>
+            </torsional>
+        </gazebo>
 
         <joint name="${prefix}robotiq_85_base_joint" type="fixed">
             <parent link="${parent}" />
@@ -238,7 +234,8 @@
             <child link="${prefix}robotiq_85_left_knuckle_link" />
             <axis xyz="0 -1 0" />
             <origin xyz="0.03060114 0.0 0.05490452" rpy="0 0 0" />
-            <limit lower="0.0" upper="0.8" velocity="0.5" effort="50" />
+            <limit lower="0.0" upper="0.8" velocity="1.5" effort="500" />
+            <dynamics damping="3.0" friction="0.4"/>
         </joint>
 
         <joint name="${prefix}robotiq_85_right_knuckle_joint" type="revolute">
@@ -246,8 +243,8 @@
             <child link="${prefix}robotiq_85_right_knuckle_link" />
             <axis xyz="0 -1 0" />
             <origin xyz="-0.03060114 0.0 0.05490452" rpy="0 0 0" />
-            <limit lower="-0.8" upper="0.0" velocity="0.5" effort="50" />
-            <mimic joint="${prefix}robotiq_85_left_knuckle_joint" multiplier="-1" />
+            <limit lower="-0.8" upper="0.0" velocity="1.5" effort="500" />
+            <dynamics damping="3.0" friction="0.4"/>
         </joint>
 
         <joint name="${prefix}robotiq_85_left_finger_joint" type="fixed">
@@ -293,5 +290,23 @@
             <origin xyz="-0.00563134 0.0 0.04718515" rpy="0 0 0" />
             <mimic joint="${prefix}robotiq_85_left_knuckle_joint" />
         </joint>
+
+        <transmission name="robotiq_85_right_knuckle_joint_transmission">
+          <type>transmission_interface/SimpleTransmission</type>
+          <joint name="robotiq_85_right_knuckle_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+          </joint>
+          <actuator name="robotiq_85_right_knuckle_joint_actuator">
+          </actuator>
+        </transmission>
+
+        <transmission name="robotiq_85_leftknuckle_joint_transmission">
+          <type>transmission_interface/SimpleTransmission</type>
+          <joint name="robotiq_85_left_knuckle_joint">
+            <hardwareInterface>EffortJointInterface</hardwareInterface>
+          </joint>
+          <actuator name="robotiq_85_left_knuckle_joint_actuator">
+          </actuator>
+        </transmission>
     </xacro:macro>
 </robot>
