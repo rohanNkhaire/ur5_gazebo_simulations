@@ -1,0 +1,214 @@
+#!/usr/bin/env python3
+"""
+A script to outline the fundamentals of the moveit_py motion planning API.
+"""
+
+import time
+from math import pi
+# generic ros libraries
+import rclpy
+from rclpy.logging import get_logger
+from rclpy.duration import Duration
+
+# moveit python library
+from moveit.core.robot_state import RobotState
+from moveit.planning import (
+    MoveItPy,
+    MultiPipelinePlanRequestParameters,
+    PlanRequestParameters,
+)
+from moveit.core.kinematic_constraints import construct_joint_constraint
+from moveit_configs_utils import MoveItConfigsBuilder
+from ament_index_python import get_package_share_directory
+from moveit_msgs import msg
+from geometry_msgs.msg import PoseStamped, Quaternion
+from trajectory_msgs.msg import JointTrajectoryPoint
+
+from tf_transformations import quaternion_from_euler
+
+def plan_and_execute(
+    robot,
+    planning_component,
+    logger,
+    single_plan_parameters=None,
+    multi_plan_parameters=None,
+    sleep_time=0.0,
+):
+    """Helper function to plan and execute a motion."""
+    # plan to goal
+    logger.info("Planning trajectory")
+    if multi_plan_parameters is not None:
+        plan_result = planning_component.plan(
+            multi_plan_parameters=multi_plan_parameters
+        )
+    elif single_plan_parameters is not None:
+        plan_result = planning_component.plan(
+            single_plan_parameters=single_plan_parameters
+        )
+    else:
+        plan_result = planning_component.plan()
+
+    # execute the plan
+    if plan_result:
+        logger.info("Executing plan")
+        robot_trajectory = plan_result.trajectory
+        robot.execute(robot_trajectory, controllers=[])
+    else:
+        logger.error("Planning failed")
+
+    time.sleep(sleep_time) 
+
+def closedGripper():
+    """Specifies closed grasp posture for the pick and place motions"""
+    # specify which end effector joints are involved in the grasp
+    gripper.set_start_state_to_current_state()
+
+    # set constraints message
+    joint_values = {
+            "robotiq_85_left_knuckle_joint": 0.75,
+            "robotiq_85_right_knuckle_joint": -0.75,
+    }
+    robot_state.joint_positions = joint_values
+    gripper.set_goal_state(robot_state=robot_state)
+    single_plan_request_params = PlanRequestParameters(
+        ur5, "stomp_planner")
+
+    plan_and_execute(ur5, gripper, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
+
+def openGripper():
+    """Specifies open grasp posture for the pick and place motions"""
+    # specify which end effector joints are involved in the grasp
+    # set plan start state to current state
+    gripper.set_start_state_to_current_state()
+
+    # set constraints message
+    joint_values = {
+            "robotiq_85_left_knuckle_joint": 0.0,
+            "robotiq_85_right_knuckle_joint": -0.0,
+    }
+    robot_state.joint_positions = joint_values
+    gripper.set_goal_state(robot_state=robot_state)
+    single_plan_request_params = PlanRequestParameters(
+        ur5, "stomp_planner")
+
+    plan_and_execute(ur5, gripper, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
+
+
+def pick(move_group):
+    """Specifies, plans, and executes a pick operation."""
+
+    single_plan_request_params = PlanRequestParameters(
+        ur5, "ompl_rrtc")
+    
+    # initialise multi-pipeline plan request parameters
+    multi_pipeline_plan_request_params = MultiPipelinePlanRequestParameters(
+        ur5, ["ompl_rrtc", "stomp_planner"]
+    )
+    # set plan start state to current state
+    ur5_arm.set_start_state_to_current_state()
+
+    # Create a goal position for picking
+    pose_goal = PoseStamped()
+    pose_goal.header.frame_id = "world"
+    pose_goal.header.stamp = rclpy.time.Time().to_msg()
+    quat = quaternion_from_euler(1.57, 0.0, 1.57)
+    pose_goal.pose.orientation.x = quat[0]
+    pose_goal.pose.orientation.y = quat[1]
+    pose_goal.pose.orientation.z = quat[2]
+    pose_goal.pose.orientation.w = quat[3]
+    pose_goal.pose.position.x = -0.41
+    pose_goal.pose.position.y = 0.15
+    pose_goal.pose.position.z = 1.09
+    ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
+    plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
+
+    # Finally we specify the parameters for the open and close
+    # posture of the grasp 
+    openGripper()
+
+    # set plan start state to current state
+    ur5_arm.set_start_state_to_current_state()
+
+    pose_goal = PoseStamped()
+    pose_goal.header.frame_id = "world"
+    pose_goal.header.stamp = rclpy.time.Time().to_msg()
+    quat = quaternion_from_euler(1.57, 0.0, 1.57)
+    pose_goal.pose.orientation.x = quat[0]
+    pose_goal.pose.orientation.y = quat[1]
+    pose_goal.pose.orientation.z = quat[2]
+    pose_goal.pose.orientation.w = quat[3]
+    pose_goal.pose.position.x = -0.41
+    pose_goal.pose.position.y = 0.25
+    pose_goal.pose.position.z = 1.09
+    ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
+    plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, multi_plan_parameters=multi_pipeline_plan_request_params)
+
+    closedGripper()
+
+    ur5_arm.set_start_state_to_current_state()
+
+    pose_goal = PoseStamped()
+    pose_goal.header.frame_id = "world"
+    pose_goal.header.stamp = rclpy.time.Time().to_msg()
+    quat = quaternion_from_euler(1.57, 0.0, 1.57)
+    pose_goal.pose.orientation.x = quat[0]
+    pose_goal.pose.orientation.y = quat[1]
+    pose_goal.pose.orientation.z = quat[2]
+    pose_goal.pose.orientation.w = quat[3]
+    pose_goal.pose.position.x = -0.3
+    pose_goal.pose.position.y = 0.0
+    pose_goal.pose.position.z = 1.6
+    ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
+    plan_and_execute(ur5, ur5_arm, logger, sleep_time=3.0, multi_plan_parameters=multi_pipeline_plan_request_params)
+
+def place(move_group):
+    """Specifies, plans, and executes a place operation."""
+
+    # initialise multi-pipeline plan request parameters
+    multi_pipeline_plan_request_params = MultiPipelinePlanRequestParameters(
+        ur5, ["ompl_rrtc", "stomp_planner"]
+    ) 
+    single_plan_request_params = PlanRequestParameters(
+        ur5, "ompl_rrtc")
+
+    pose_goal = PoseStamped()
+    pose_goal.header.frame_id = "world"
+    pose_goal.header.stamp = rclpy.time.Time().to_msg()
+    quat = quaternion_from_euler(1.57, 0.0, 1.57)
+    pose_goal.pose.orientation.x = quat[0]
+    pose_goal.pose.orientation.y = quat[1]
+    pose_goal.pose.orientation.z = quat[2]
+    pose_goal.pose.orientation.w = quat[3]
+    pose_goal.pose.position.x = 0.45
+    pose_goal.pose.position.y = 0.0
+    pose_goal.pose.position.z = 0.85
+    ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
+    plan_and_execute(ur5, ur5_arm, logger, sleep_time=3.0, multi_plan_parameters=multi_pipeline_plan_request_params)
+
+    # Finally we specify the parameters for the open and close
+    # posture of the grasp 
+    openGripper()
+
+
+if __name__=='__main__':
+    # Initialise moveit and ROS node
+    rclpy.init()
+    logger = get_logger("moveit_py.pose_goal")
+
+    # instantiate MoveItPy instance and get planning component
+    ur5 = MoveItPy(node_name="moveit_py")
+    ur5_arm = ur5.get_planning_component("ur5_arm")
+    gripper = ur5.get_planning_component("gripper")
+    logger.info("MoveItPy instance created")
+
+    # instantiate a RobotState instance using the current robot model
+    robot_model = ur5.get_robot_model()
+    robot_state = RobotState(robot_model)
+
+    # Plan and execute the pick operation
+    pick(ur5_arm)
+
+    #rclpy.sleep(1)
+
+    # Plan and execute the place operaation
+    place(ur5_arm)

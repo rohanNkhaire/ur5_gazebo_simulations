@@ -43,6 +43,10 @@
   <exec_depend>tf2_ros</exec_depend>
   <exec_depend>ur_simulation_gz</exec_depend>
   <exec_depend>xacro</exec_depend>
+  <exec_depend>moveit_py</exec_depend>
+  <exec_depend>tf_transformations</exec_depend>
+  <exec_depend>pick_ik</exec_depend>
+  <exec_depend>trac-ik-kinematics-plugin</exec_depend>
 
 
   <export>

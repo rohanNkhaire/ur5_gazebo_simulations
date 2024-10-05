@@ -1,10 +1,10 @@
 # ur5_pick_and_place
 This repo contains files to simulate UR5 in Gazebo for pick and place task
 
-![](media/picknplace.gif)
+![](media/picknplace_jazzy.gif)
 
 # System Requirements #
-- ROS1 Noetic
+- ROS2 Jazzy
 
 # Dependencies #
 - CycloneDDS RMW
@@ -20,9 +20,6 @@ git clone https://github.com/rohanNkhaire/ur5_pick_and_place.git -b jazzy
 
 # Install dependencies
 cd ur5_pick_and_place
-
-# Source ROS2 Jazzy before rosdep install
-source /opt/ros/jazzy/setup.bash
 
 # Install dependencies
 rosdep update
@@ -53,11 +50,7 @@ export GZ_SIM_SYSTEM_PLUGIN_PATH=<path to this repo>/build/GraspPlugin
 # Launches Gazebo and Moveit2
 ros2 launch ur_simulation_gz ur_sim_moveit.launch.py
 
-# Spawn the object in the gazebo world
-# Open a new terminal
-rosrun gazebo_ros spawn_model -file `rospack find ur_description`/urdf/objects/box.urdf -urdf -x -0.5 -y -0.5 -z 1 -model my_object
-
 # Run the pick and place script
-cd gazebo_ros_link_attacher/scripts
-python3 picknplace.py
+ros2 launch ur5_moveit_config picknpplace.launch.py executable_script:="picknplace_cube_low"
+
 ```
