@@ -35,6 +35,15 @@ pilz_lin:
     max_acceleration_scaling_factor: 0.5
     planning_time: 0.8
 
+pilz_circ:
+  plan_request_params:
+    planning_attempts: 10
+    planning_pipeline: pilz_industrial_motion_planner
+    planner_id: "CIRC"
+    max_velocity_scaling_factor: 0.5
+    max_acceleration_scaling_factor: 0.5
+    planning_time: 0.8
+
 chomp_planner:
   plan_request_params:
     planning_attempts: 10

@@ -65,8 +65,8 @@ def closedGripper():
 
     # set constraints message
     joint_values = {
-            "robotiq_85_left_knuckle_joint": 0.6,
-            "robotiq_85_right_knuckle_joint": -0.6,
+            "robotiq_85_left_knuckle_joint": 0.75,
+            "robotiq_85_right_knuckle_joint": -0.75,
     }
     robot_state.joint_positions = joint_values
     gripper.set_goal_state(robot_state=robot_state)
@@ -83,8 +83,8 @@ def openGripper():
 
     # set constraints message
     joint_values = {
-            "robotiq_85_left_knuckle_joint": 0.04,
-            "robotiq_85_right_knuckle_joint": -0.04,
+            "robotiq_85_left_knuckle_joint": 0.0,
+            "robotiq_85_right_knuckle_joint": -0.0,
     }
     robot_state.joint_positions = joint_values
     gripper.set_goal_state(robot_state=robot_state)
@@ -109,16 +109,16 @@ def pick(move_group):
 
     # Create a goal position for picking
     pose_goal = PoseStamped()
-    pose_goal.header.frame_id = "base_link"
+    pose_goal.header.frame_id = "world"
     pose_goal.header.stamp = rclpy.time.Time().to_msg()
-    quat = quaternion_from_euler(0.0, 1.57, 1.57)
+    quat = quaternion_from_euler(1.57, 0.0, 1.57)
     pose_goal.pose.orientation.x = quat[0]
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.4
-    pose_goal.pose.position.y = -0.04
-    pose_goal.pose.position.z = 0.1967
+    pose_goal.pose.position.x = -0.41
+    pose_goal.pose.position.y = 0.15
+    pose_goal.pose.position.z = 1.09
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
     plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
 
@@ -130,64 +130,60 @@ def pick(move_group):
     ur5_arm.set_start_state_to_current_state()
 
     pose_goal = PoseStamped()
-    pose_goal.header.frame_id = "base_link"
+    pose_goal.header.frame_id = "world"
     pose_goal.header.stamp = rclpy.time.Time().to_msg()
-    quat = quaternion_from_euler(0.0, 1.57, 1.57)
+    quat = quaternion_from_euler(1.57, 0.0, 1.57)
     pose_goal.pose.orientation.x = quat[0]
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.4
-    pose_goal.pose.position.y = -0.04
-    pose_goal.pose.position.z = -0.1213
+    pose_goal.pose.position.x = -0.41
+    pose_goal.pose.position.y = 0.25
+    pose_goal.pose.position.z = 1.09
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
-    plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
+    plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, multi_plan_parameters=multi_pipeline_plan_request_params)
 
     closedGripper()
 
     ur5_arm.set_start_state_to_current_state()
 
     pose_goal = PoseStamped()
-    pose_goal.header.frame_id = "base_link"
+    pose_goal.header.frame_id = "world"
     pose_goal.header.stamp = rclpy.time.Time().to_msg()
-    quat = quaternion_from_euler(0.0, 1.57, 1.57)
+    quat = quaternion_from_euler(1.57, 0.0, 1.57)
     pose_goal.pose.orientation.x = quat[0]
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.3
+    pose_goal.pose.position.x = -0.3
     pose_goal.pose.position.y = 0.0
-    pose_goal.pose.position.z = 0.5967
+    pose_goal.pose.position.z = 1.6
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
-    plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
+    plan_and_execute(ur5, ur5_arm, logger, sleep_time=3.0, multi_plan_parameters=multi_pipeline_plan_request_params)
 
 def place(move_group):
     """Specifies, plans, and executes a place operation."""
 
-    single_plan_request_params = PlanRequestParameters(
-        ur5, "ompl_rrtc")
-    
     # initialise multi-pipeline plan request parameters
     multi_pipeline_plan_request_params = MultiPipelinePlanRequestParameters(
         ur5, ["ompl_rrtc", "stomp_planner"]
-    )
-
-    # set plan start state to current state
-    ur5_arm.set_start_state_to_current_state()
+    ) 
+    single_plan_request_params = PlanRequestParameters(
+        ur5, "ompl_rrtc")
 
     pose_goal = PoseStamped()
-    pose_goal.header.frame_id = "base_link"
+    pose_goal.header.frame_id = "world"
     pose_goal.header.stamp = rclpy.time.Time().to_msg()
-    quat = quaternion_from_euler(0.0, 1.57, 1.57)
+    quat = quaternion_from_euler(1.57, 0.0, 1.57)
     pose_goal.pose.orientation.x = quat[0]
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = -0.45
-    pose_goal.pose.position.y = -0.08
-    pose_goal.pose.position.z = 0.2467
+    pose_goal.pose.position.x = 0.45
+    pose_goal.pose.position.y = 0.0
+    pose_goal.pose.position.z = 0.85
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
-    plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0)
+    plan_and_execute(ur5, ur5_arm, logger, sleep_time=3.0, multi_plan_parameters=multi_pipeline_plan_request_params)
 
     # Finally we specify the parameters for the open and close
     # posture of the grasp 

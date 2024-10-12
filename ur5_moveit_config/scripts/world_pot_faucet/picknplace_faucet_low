@@ -8,7 +8,6 @@ from math import pi
 # generic ros libraries
 import rclpy
 from rclpy.logging import get_logger
-from rclpy.duration import Duration
 
 # moveit python library
 from moveit.core.robot_state import RobotState
@@ -17,12 +16,7 @@ from moveit.planning import (
     MultiPipelinePlanRequestParameters,
     PlanRequestParameters,
 )
-from moveit.core.kinematic_constraints import construct_joint_constraint
-from moveit_configs_utils import MoveItConfigsBuilder
-from ament_index_python import get_package_share_directory
-from moveit_msgs import msg
-from geometry_msgs.msg import PoseStamped, Quaternion
-from trajectory_msgs.msg import JointTrajectoryPoint
+from geometry_msgs.msg import PoseStamped
 
 from tf_transformations import quaternion_from_euler
 
@@ -65,8 +59,8 @@ def closedGripper():
 
     # set constraints message
     joint_values = {
-            "robotiq_85_left_knuckle_joint": 0.6,
-            "robotiq_85_right_knuckle_joint": -0.6,
+            "robotiq_85_left_knuckle_joint": 0.8,
+            "robotiq_85_right_knuckle_joint": -0.8,
     }
     robot_state.joint_positions = joint_values
     gripper.set_goal_state(robot_state=robot_state)
@@ -116,9 +110,9 @@ def pick(move_group):
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.4
-    pose_goal.pose.position.y = -0.04
-    pose_goal.pose.position.z = 0.1967
+    pose_goal.pose.position.x = 0.28
+    pose_goal.pose.position.y = -0.23
+    pose_goal.pose.position.z = 0.1267
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
     plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
 
@@ -137,9 +131,9 @@ def pick(move_group):
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.4
-    pose_goal.pose.position.y = -0.04
-    pose_goal.pose.position.z = -0.1213
+    pose_goal.pose.position.x = 0.28
+    pose_goal.pose.position.y = -0.23
+    pose_goal.pose.position.z = 0.005
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
     plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
 
@@ -150,14 +144,14 @@ def pick(move_group):
     pose_goal = PoseStamped()
     pose_goal.header.frame_id = "base_link"
     pose_goal.header.stamp = rclpy.time.Time().to_msg()
-    quat = quaternion_from_euler(0.0, 1.57, 1.57)
+    quat = quaternion_from_euler(0.0, 1.57, 3.14)
     pose_goal.pose.orientation.x = quat[0]
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.3
-    pose_goal.pose.position.y = 0.0
-    pose_goal.pose.position.z = 0.5967
+    pose_goal.pose.position.x = 0.36
+    pose_goal.pose.position.y = -0.26
+    pose_goal.pose.position.z = 0.005
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
     plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
 
@@ -215,4 +209,4 @@ if __name__=='__main__':
     #rclpy.sleep(1)
 
     # Plan and execute the place operaation
-    place(ur5_arm)
+    #place(ur5_arm)

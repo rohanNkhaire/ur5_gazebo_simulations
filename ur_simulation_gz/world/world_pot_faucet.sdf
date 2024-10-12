@@ -59,11 +59,6 @@
       <pose>0 0 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
-    <include>
-      <uri>file:///home/rohan/Projects/pick_n_place/src/models/Table</uri>
-      <name>Table</name>
-      <pose>-0.54999995231628418 2.5105050482920888e-08 4.5577053242595866e-09 2.067827065527317e-08 -9.3290381029314728e-09 -1.5699999681373873</pose>
-    </include>
     <model name='simple_box_v3'>
       <link name='my_box'>
         <inertial>
@@ -164,41 +159,6 @@
       </link>
       <pose>-0.27491697669029236 0.007044683676213026 1.0299999713897705 0 0 0</pose>
       <static>false</static>
-      <self_collide>false</self_collide>
-    </model>
-    <model name='FoodCourtTable1'>
-      <static>false</static>
-      <link name='body'>
-        <pose>0 0 0 0 0 0</pose>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://FoodCourtTable1/meshes/FoodCourtTable1.obj</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://FoodCourtTable1/meshes/FoodCourtTable1_Col.obj</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <pose>0.44999998807907104 7.9364139082827023e-07 0.0099982386454939842 -3.7349345839490939e-06 2.6028587679519127e-08 -2.8229890489869748e-07</pose>
       <self_collide>false</self_collide>
     </model>
     <model name='faucet'>
@@ -378,6 +338,11 @@
           </dynamics>
         </axis>
       </joint>
+      <joint name='facuet_to_world' type='fixed'>
+        <pose>-0.39902005794477091 0.40169200004912092 1.01 3.1906673817958501e-06 1.7697077294450161e-07 9.2936652586111186e-05</pose>
+        <parent>world</parent>
+        <child>my_box</child>
+      </joint>
       <link name='link_0'>
         <pose>1.3302616785892951e-09 0.020047399707970703 0.15998402418770152 1.5700008178444214 1.8809166434578344e-05 0.023620205738600551</pose>
         <inertial>
@@ -472,7 +437,7 @@
       <frame name='link_2' attached_to='joint_base'>
         <pose>0 0 0 0 0 0</pose>
       </frame>
-      <pose>-0.39902005794477091 0.40169200004912092 1.029997266323553 3.1906673817958501e-06 1.7697077294450161e-07 9.2936652586111186e-05</pose>
+      <pose>-0.39902005794477091 0.40169200004912092 1.01 3.1906673817958501e-06 1.7697077294450161e-07 9.2936652586111186e-05</pose>
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
@@ -631,6 +596,11 @@
         <pose>0 0 0 0 0 0</pose>
         <enable_wind>false</enable_wind>
       </link>
+      <joint name='facuet_to_world' type='fixed'>
+        <pose>0.35594342185409228 -0.24638886222989989 0.76181814659120595 -7.6409793471068252e-06 -1.3995633141429615e-07 -0.022194335455022352</pose>
+        <parent>world</parent>
+        <child>my_box</child>
+      </joint>
       <joint name='joint_0' type='revolute'>
         <pose>0 5.5511199999999995e-17 0 0 0 0</pose>
         <parent>my_box</parent>
@@ -747,7 +717,7 @@
       <frame name='link_2' attached_to='joint_base'>
         <pose>0 0 0 0 0 0</pose>
       </frame>
-      <pose>0.35594342185409228 -0.24638886222989989 0.76181814659120595 -7.6409793471068252e-06 -1.3995633141429615e-07 -0.022194335455022352</pose>
+      <pose>0.35594342185409228 -0.24638886222989989 0.725 -7.6409793471068252e-06 -1.3995633141429615e-07 -0.022194335455022352</pose>
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
@@ -1209,15 +1179,15 @@
     <model name='pot_3'>
       <link name='link_1'>
         <inertial>
-          <pose>0 0 0 0 0 0</pose>
+          <pose>0 0 0 1.57 0 0</pose>
           <mass>0.25</mass>
           <inertia>
-            <ixx>0.00035</ixx>
+            <ixx>0.0010083</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0.00050000000000000001</iyy>
+            <iyy>0.0010083</iyy>
             <iyz>0</iyz>
-            <izz>0.00042499999999999998</izz>
+            <izz>0.0016</izz>
           </inertia>
         </inertial>
         <collision name='link_1_collision'>
@@ -1458,7 +1428,7 @@
         <enable_wind>false</enable_wind>
       </link>
       <joint name='joint_0' type='prismatic'>
-        <pose>-1.3234899999999999e-23 2.6469799999999997e-23 0 0 -3.9829600000000001e-25 0</pose>
+        <pose>-1.3234899999999999e-23 2.6469799999999997e-23 0 0 0 0</pose>
         <parent>link_1</parent>
         <child>link_0</child>
         <axis>
@@ -1480,17 +1450,17 @@
         </axis>
       </joint>
       <link name='link_0'>
-        <pose>-8.9656676138805125e-08 -7.6995992115413969e-07 -1.8906958054731859e-08 -2.3870571366935679e-07 -1.2136411279427867e-08 1.3524563328189059e-07</pose>
+        <pose>-8.9656676138805125e-08 -7.6995992115413969e-07 -1.8906958054731859e-08 0 0 0</pose>
         <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>0.00029999999999999997</mass>
+          <pose>0 0.04 0 1.571 0 0</pose>
+          <mass>0.02</mass>
           <inertia>
-            <ixx>0.00035</ixx>
+            <ixx>0.000028791</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0.00050000000000000001</iyy>
+            <iyy>0.000028791</iyy>
             <iyz>0</iyz>
-            <izz>0.00042499999999999998</izz>
+            <izz>0.00005625</izz>
           </inertia>
         </inertial>
         <collision name='link_0_collision'>
@@ -1657,7 +1627,251 @@
         </visual>
         <enable_wind>false</enable_wind>
       </link>
-      <pose>0.38644075393676758 0.14666691422462463 0.80574268102645874 1.5708162056841075 2.2034187456814774e-07 0.0041615421656691952</pose>
+      <pose>0.38644075393676758 0.14666691422462463 0.80574268102645874 1.5708162056841075 0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='Table'>
+      <link name='baseLink'>
+        <inertial>
+          <pose>0 0 0.4875 0 0 0</pose>
+          <mass>0.5</mass>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <collision name='baseLink_collision'>
+          <pose>0 0 0.975 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 1 0.050000000000000003</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_1'>
+          <pose>-0.65000000000000002 -0.40000000000000002 0.4875 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 0.975</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_2'>
+          <pose>-0.65000000000000002 0.40000000000000002 0.4875 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 0.975</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_3'>
+          <pose>0.65000000000000002 -0.40000000000000002 0.4875 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 0.975</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_4'>
+          <pose>0.65000000000000002 0.40000000000000002 0.4875 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 0.975</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name='baseLink_visual'>
+          <pose>0 0 0.975 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1.5 1 0.050000000000000003</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_1'>
+          <pose>-0.65000000000000002 -0.40000000000000002 0.4875 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.975</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_2'>
+          <pose>-0.65000000000000002 0.40000000000000002 0.4875 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.975</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_3'>
+          <pose>0.65000000000000002 -0.40000000000000002 0.4875 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.975</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_4'>
+          <pose>0.65000000000000002 0.40000000000000002 0.4875 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.975</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.65 0.0 0.0 0.0 0.0 1.5666394579768517</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='Table_low'>
+      <link name='baseLink'>
+        <inertial>
+          <pose>0 0 0.4875 0 0 0</pose>
+          <mass>0.5</mass>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0</iyz>
+            <izz>0.001</izz>
+          </inertia>
+        </inertial>
+        <collision name='baseLink_collision'>
+          <pose>0 0 0.6862 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 1 0.050000000000000003</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_1'>
+          <pose>-0.65000000000000002 -0.40000000000000002 0.3431 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 0.6862</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_2'>
+          <pose>-0.65000000000000002 0.40000000000000002 0.3431 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 0.6862</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_3'>
+          <pose>0.65000000000000002 -0.40000000000000002 0.3431 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 0.6862</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name='baseLink_collision_4'>
+          <pose>0.65000000000000002 0.40000000000000002 0.3431 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 0.6862</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name='baseLink_visual'>
+          <pose>0 0 0.6862 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1.5 1 0.050000000000000003</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_1'>
+          <pose>-0.65000000000000002 -0.40000000000000002 0.3431 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.6862</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_2'>
+          <pose>-0.65000000000000002 0.40000000000000002 0.3431 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.6862</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_3'>
+          <pose>0.65000000000000002 -0.40000000000000002 0.3431 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.6862</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='baseLink_visual_4'>
+          <pose>0.65000000000000002 0.40000000000000002 0.3431 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.6862</scale>
+              <uri>model://urdf/table/table.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.65 0.0 0.0 0.0 0.0 1.5666394579768517</pose>
       <static>false</static>
       <self_collide>false</self_collide>
     </model>

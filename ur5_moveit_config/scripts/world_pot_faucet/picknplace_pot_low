@@ -65,8 +65,8 @@ def closedGripper():
 
     # set constraints message
     joint_values = {
-            "robotiq_85_left_knuckle_joint": 0.6,
-            "robotiq_85_right_knuckle_joint": -0.6,
+            "robotiq_85_left_knuckle_joint": 0.8,
+            "robotiq_85_right_knuckle_joint": -0.8,
     }
     robot_state.joint_positions = joint_values
     gripper.set_goal_state(robot_state=robot_state)
@@ -116,9 +116,9 @@ def pick(move_group):
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.4
-    pose_goal.pose.position.y = -0.04
-    pose_goal.pose.position.z = 0.1967
+    pose_goal.pose.position.x = 0.39
+    pose_goal.pose.position.y = 0.141
+    pose_goal.pose.position.z = 0.1
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
     plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
 
@@ -137,9 +137,9 @@ def pick(move_group):
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.4
-    pose_goal.pose.position.y = -0.04
-    pose_goal.pose.position.z = -0.1213
+    pose_goal.pose.position.x = 0.39
+    pose_goal.pose.position.y = 0.141
+    pose_goal.pose.position.z = -0.025
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
     plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
 
@@ -155,9 +155,9 @@ def pick(move_group):
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.3
-    pose_goal.pose.position.y = 0.0
-    pose_goal.pose.position.z = 0.5967
+    pose_goal.pose.position.x = 0.39
+    pose_goal.pose.position.y = 0.15
+    pose_goal.pose.position.z = 0.04
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
     plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
 
@@ -215,4 +215,4 @@ if __name__=='__main__':
     #rclpy.sleep(1)
 
     # Plan and execute the place operaation
-    place(ur5_arm)
+    #place(ur5_arm)

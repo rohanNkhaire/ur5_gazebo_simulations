@@ -109,16 +109,16 @@ def pick(move_group):
 
     # Create a goal position for picking
     pose_goal = PoseStamped()
-    pose_goal.header.frame_id = "base_link"
+    pose_goal.header.frame_id = "world"
     pose_goal.header.stamp = rclpy.time.Time().to_msg()
     quat = quaternion_from_euler(0.0, 1.57, 1.57)
     pose_goal.pose.orientation.x = quat[0]
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.4
-    pose_goal.pose.position.y = -0.04
-    pose_goal.pose.position.z = 0.1967
+    pose_goal.pose.position.x = -0.44
+    pose_goal.pose.position.y = -0.08
+    pose_goal.pose.position.z = 1.2
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
     plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
 
@@ -130,16 +130,16 @@ def pick(move_group):
     ur5_arm.set_start_state_to_current_state()
 
     pose_goal = PoseStamped()
-    pose_goal.header.frame_id = "base_link"
+    pose_goal.header.frame_id = "world"
     pose_goal.header.stamp = rclpy.time.Time().to_msg()
     quat = quaternion_from_euler(0.0, 1.57, 1.57)
     pose_goal.pose.orientation.x = quat[0]
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.4
-    pose_goal.pose.position.y = -0.04
-    pose_goal.pose.position.z = -0.1213
+    pose_goal.pose.position.x = -0.44
+    pose_goal.pose.position.y = -0.08
+    pose_goal.pose.position.z = 1.175
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
     plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
 
@@ -148,16 +148,16 @@ def pick(move_group):
     ur5_arm.set_start_state_to_current_state()
 
     pose_goal = PoseStamped()
-    pose_goal.header.frame_id = "base_link"
+    pose_goal.header.frame_id = "world"
     pose_goal.header.stamp = rclpy.time.Time().to_msg()
     quat = quaternion_from_euler(0.0, 1.57, 1.57)
     pose_goal.pose.orientation.x = quat[0]
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = 0.3
+    pose_goal.pose.position.x = -0.3
     pose_goal.pose.position.y = 0.0
-    pose_goal.pose.position.z = 0.5967
+    pose_goal.pose.position.z = 1.6
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
     plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0, single_plan_parameters=single_plan_request_params)
 
@@ -176,16 +176,16 @@ def place(move_group):
     ur5_arm.set_start_state_to_current_state()
 
     pose_goal = PoseStamped()
-    pose_goal.header.frame_id = "base_link"
+    pose_goal.header.frame_id = "world"
     pose_goal.header.stamp = rclpy.time.Time().to_msg()
     quat = quaternion_from_euler(0.0, 1.57, 1.57)
     pose_goal.pose.orientation.x = quat[0]
     pose_goal.pose.orientation.y = quat[1]
     pose_goal.pose.orientation.z = quat[2]
     pose_goal.pose.orientation.w = quat[3]
-    pose_goal.pose.position.x = -0.45
-    pose_goal.pose.position.y = -0.08
-    pose_goal.pose.position.z = 0.2467
+    pose_goal.pose.position.x = 0.4
+    pose_goal.pose.position.y = 0.2
+    pose_goal.pose.position.z = 0.9
     ur5_arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="flange")
     plan_and_execute(ur5, ur5_arm, logger, sleep_time=1.0)
 

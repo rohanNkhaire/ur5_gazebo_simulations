@@ -197,7 +197,7 @@
           <geometry>
             <mesh>
               <scale>0.08000000000000001 0.10000000000000001 0.08000000000000001</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+              <uri>model://urdf/bottle_v2/textured_objs/new-1.obj</uri>
             </mesh>
           </geometry>
         </visual>
@@ -244,7 +244,7 @@
           <geometry>
             <mesh>
               <scale>0.08000000000000001 0.10000000000000001 0.08000000000000001</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/bottle_v2/textured_objs/new-1.obj</uri>
+              <uri>model://urdf/bottle_v2/textured_objs/new-1.obj</uri>
             </mesh>
           </geometry>
         </visual>
@@ -314,7 +314,7 @@
           <geometry>
             <mesh>
               <scale>1.5 1 0.050000000000000003</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -327,7 +327,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -340,7 +340,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -353,7 +353,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
           <material>
@@ -366,7 +366,7 @@
           <geometry>
             <mesh>
               <scale>0.10000000000000001 0.10000000000000001 1.2</scale>
-              <uri>file:///home/rohan/Projects/pick_n_place/src/models/urdf/table/table.obj</uri>
+              <uri>model://urdf/table/table.obj</uri>
             </mesh>
           </geometry>
         </visual>
@@ -377,48 +377,8 @@
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
-    <model name='FoodCourtTable1'>
-      <static>false</static>
-      <link name='body'>
-        <pose>0 0 0 0 0 0</pose>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://FoodCourtTable1/meshes/FoodCourtTable1.obj</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://FoodCourtTable1/meshes/FoodCourtTable1_Col.obj</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <pose>0.51150679588317871 0.47414401173591614 0.0099991671741008759 2.1465616038869464e-08 2.6918032745346722e-06 -3.2345765817497727e-09</pose>
-      <self_collide>false</self_collide>
-    </model>
     <include>
-      <uri>file:///home/rohan/Projects/pick_n_place/src/models/Small Blue Box</uri>
-      <name>Small Blue Box</name>
-      <pose>0.41087301854922798 0.14887356100577306 0.74689373606576415 0 0 0</pose>
-    </include>
-    <include>
-      <uri>file:///home/rohan/Projects/pick_n_place/src/models/Suitcase2H</uri>
+      <uri>model://Suitcase2H</uri>
       <name>Suitcase2H</name>
       <pose>0.34825289249420166 -0.30236494541168213 0 0 0 0</pose>
     </include>

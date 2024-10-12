@@ -449,9 +449,11 @@
       <frame name='joint_base' attached_to='my_box'>
         <pose>0 0 0.10000000000000001 1.5700000000000001 0 0</pose>
       </frame>
-      <frame name='link_2' attached_to='joint_base'>
-        <pose>0 0 0 0 0 0</pose>
-      </frame>
+      <joint name='facuet_to_world' type='fixed'>
+        <pose>0.46518950871013931 -0.35021882081094652 1.0399999721613513 -2.2160620866738731e-07 -3.0009751783851046e-07 -1.5700001408169877</pose>
+        <parent>world</parent>
+        <child>my_box</child>
+      </joint>
       <pose>0.46518950871013931 -0.35021882081094652 1.2399999721613513 -2.2160620866738731e-07 -3.0009751783851046e-07 -1.5700001408169877</pose>
       <static>false</static>
       <self_collide>false</self_collide>

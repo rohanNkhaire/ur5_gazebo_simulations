@@ -23,7 +23,7 @@ cd ur5_pick_and_place
 
 # Install dependencies
 rosdep update
-rosdep install --from-paths src --ignore-src --ros-distro jazzy -y
+rosdep install --from-paths src --ignore-src -y
 
 # Source ROS2 Jazzy after rosdep install
 source /opt/ros/jazzy/setup.bash
