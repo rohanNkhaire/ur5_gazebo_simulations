@@ -1,4 +1,4 @@
-# ur5_pick_and_place
+# ur5 Gazebo Simulations
 This repo contains files to simulate UR5 in Gazebo for pick and place task
 
 ![](media/picknplace_jazzy.gif)
