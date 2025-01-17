@@ -16,10 +16,10 @@ export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 # Installation #
 ```bash
 # Clone the repo
-git clone https://github.com/rohanNkhaire/ur5_pick_and_place.git -b jazzy
+git clone https://github.com/rohanNkhaire/ur5_gazebo_simulations -b jazzy
 
 # Install dependencies
-cd ur5_pick_and_place
+cd ur5_gazebo_simulations
 
 # Install dependencies
 rosdep update
@@ -42,7 +42,9 @@ source install/setup.bash
 export GZ_SIM_RESOURCE_PATH=<path to this repo>/src/ur5_pick_and_place/models
 
 # Gazebo plugin
-export GZ_SIM_SYSTEM_PLUGIN_PATH=<path to this repo>/build/GraspPlugin
+# Cubioids can be picked up without the plugin.
+# This plugion will be useful for picking up cylindrical or spherical objects
+# export GZ_SIM_SYSTEM_PLUGIN_PATH=<path to this repo>/build/GraspPlugin
 ```
 
 # Usage #
